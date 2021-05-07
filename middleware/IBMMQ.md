@@ -1,18 +1,23 @@
 # [Home](../README.md)
-[toc]
+## [IBMMQ](https://www.ibm.com/docs/zh/ibm-mq/9.1?topic=properties-mq)
 
-# 下载网址
+### 下载网址
 - http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/
 - https://www-01.ibm.com/marketing/iwm/iwm/web/download.do?S_PKG=CRZC5ML&source=ESD-WSMQ-EVAL&transactionid=448604060&pageType=urx  
-试用版：https://www.ibm.com/support/knowledgecenter/en/SSFKSJ/com.ibm.mq.helphome.doc/mq_downloads_admins.htm
+
+### 试用版：
+- https://www.ibm.com/support/knowledgecenter/en/SSFKSJ/com.ibm.mq.helphome.doc/mq_downloads_admins.htm
 
 
+## liunx下安装
+参考资料：
 
-# liunx下安装
-参考资料：https://blog.csdn.net/dataiyangu/article/details/82808450
-          http://www.desenpast.com/middleware-4481.html
+- https://blog.csdn.net/dataiyangu/article/details/82808450
+- http://www.desenpast.com/middleware-4481.html
 
-官网资料：https://www.ibm.com/developerworks/cn/linux/linux-speed-start/l-ss-mq/#code9
+官网资料：
+
+- https://www.ibm.com/developerworks/cn/linux/linux-speed-start/l-ss-mq/#code9
 
 ## 解压
 ```

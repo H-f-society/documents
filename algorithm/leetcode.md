@@ -1,7 +1,50 @@
 # [Home](../README.md)
 # [LeetCode](https://leetcode-cn.com/)
 
+## 23. [<font color=red>合并K个升序链表</font>](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+	public ListNode mergeKLists(ListNode[] lists) {
+		ListNode node = new ListNode(0);
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		ListNode h = node;
+		for (int i = 0; i < lists.length; i++) {
+			ListNode head = lists[i];
+			while (head != null) {
+				if (map.get(head.val) == null)
+					map.put(head.val, 1);
+				else
+					map.put(head.val, map.get(head.val) + 1);
+				head = head.next;
+			}
+		}
+
+		Object[] key = map.keySet().toArray();
+		Arrays.sort(key);
+		for (int i = 0; i < key.length; i++) {
+			for (int j = 0; j < map.get(key[i]); j++) {
+				while (h.next != null) {
+					h = h.next;
+				}
+				h.next = new ListNode((int)key[i]);
+			}
+		}
+		return node.next;
+	}
+}
+```
 ## 25. [<font color=red>K个一组翻转链表</font>](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+![K个一组翻转链表](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex1.jpg)
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -161,6 +204,24 @@ class Solution {
 			}
 		}
 		return true;
+	}
+}
+```
+## 41. [<font color=red>缺失的第一个整数</font>](https://leetcode-cn.com/problems/first-missing-positive/)
+```java
+class Solution {
+	public int firstMissingPositive(int[] nums) {
+		if (nums.length == 0) return 1;
+		int n = 1;
+		while (true) {
+			for (int i = 0; i < nums.length; i++) {
+				if (n == nums[i])
+					break;
+				if (i == nums.length - 1 && n != nums[i])
+					return n;
+			}
+			n++;
+		}
 	}
 }
 ```
