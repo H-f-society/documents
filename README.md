@@ -14,7 +14,7 @@
 	- [MySQL](./database/MySQL.md)
 	- [hive](./database/hive.md)
 	- [clickhouse](./database/clickhouse.md)
-6. 其它
+6. 容器/仓库
 	- [Git](./container/Git.md)
 	- [Maven](./container/Maven.md)
 	- [Docker](./container/Docker.md)
