@@ -253,6 +253,28 @@ class Solution {
 }
 
 ```
+## 48. [<font color=yellow>旋转图像</font>](https://leetcode-cn.com/problems/rotate-image/)
+![旋转图像](https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg)
+
+```java
+class Solution {
+	public void rotate(int[][] matrix) {
+		int len1 = matrix[0].length / 2;
+		int len2 = matrix[0].length / 2;
+		int n = matrix[0].length;
+		if (n % 2 != 0) len1 += 1;
+		for (int i = 0; i < len1; i++) {
+			for (int j = 0; j < len2; j++) {
+				int temp = matrix[n - j - 1][i];
+				matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+				matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+				matrix[j][n - i - 1] = matrix[i][j];
+				matrix[i][j] = temp;
+			}
+		}
+	}
+}
+```
 ## 51. [<font color=red>N皇后</font>](https://leetcode-cn.com/problems/n-queens)
 ![N皇后](https://assets.leetcode.com/uploads/2020/11/13/queens.jpg)
 
