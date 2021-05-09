@@ -1,4 +1,4 @@
-## [document](./README.md)
+## [github](https://github.com/H-f-society/documents)
 1. 算法
 	- [leetcode](./algorithm/leetcode.md)
 2. 工具
