@@ -87,3 +87,5 @@
 - 列出并运行保存的查询（CTRL+e, CTRL+a）
 - 删除已保存的查询（CTRL+e, CTRL+r）
 	
+### hex插件
+- Ctrl+alt+h 查看hex
