@@ -8,16 +8,17 @@
 	- [jvm](./source/jvm.md)
 	- [juc](./source/juc.md)
 3. 框架
-	- [SpringBoot](./frame/SpringBoot.md)
+	- [spring boot](./frame/SpringBoot.md)
 4. 中间件
 	- [kafka](./middleware/kafka.md)
-	- [IBMMQ](./middleware/IBMMQ.md)
+	- [ibmmq](./middleware/IBMMQ.md)
 5. 数据库
 	- [redis](./database/redis.md)
-	- [MySQL](./database/MySQL.md)
+	- [orcle](./database/oracle.md)
+	- [mysql](./database/MySQL.md)
 	- [hive](./database/hive.md)
 	- [clickhouse](./database/clickhouse.md)
 6. 容器/仓库
-	- [Git](./container/Git.md)
-	- [Maven](./container/Maven.md)
-	- [Docker](./container/Docker.md)
+	- [git](./container/Git.md)
+	- [maven](./container/Maven.md)
+	- [docker](./container/Docker.md)
