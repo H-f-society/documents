@@ -1,6 +1,7 @@
 ## [github](https://github.com/H-f-society/documents)
 1. 算法
 	- [leetcode](./algorithm/leetcode.md)
+	- [algorithm](./algorithm/algorithm.md)
 2. 工具
 	- [sublime](./tools/Sublime.md)
 	- [idea](./tools/idea.md)
