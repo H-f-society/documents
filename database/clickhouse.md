@@ -1,5 +1,7 @@
 # [Home](../README.md)
 # [clickhouse](https://clickhouse.tech/docs/zh/)
+![clickhouse](../images/clickhouse1.webp)
+![clickhouse](../images/clickhouse.webp)
 ## 配置host
 ```shell
 	vim /etc/hosts
