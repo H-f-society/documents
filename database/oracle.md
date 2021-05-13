@@ -21,6 +21,27 @@ WHEN NOT MATCHED THEN
 ```
 
 ### 存储过程
+```sql
+create [or replace] procedure 存储过程名（param1 in type，param2 out type）
+as
+变量1 类型（值范围）;
+变量2 类型（值范围）;
+Begin
+    Select count(*) into 变量1 from 表A where列名=param1;
 
+    If (判断条件) then
+       Select 列名 into 变量2 from 表A where列名=param1;
+       Dbms_output。Put_line(‘打印信息’);
+    Elsif (判断条件) then
+       Dbms_output。Put_line(‘打印信息’);
+    Else
+       Raise 异常名（NO_DATA_FOUND）;
+    End if;
+
+Exception
+    When others then
+       Rollback;
+End;
+```
 
 ### 存储函数
