@@ -1,5 +1,5 @@
 # [Home](../README.md)
-## [数据结构与算法](https://www.cs.usfca.edu/~galles/visualization/)
+# [数据结构与算法](https://www.cs.usfca.edu/~galles/visualization/)
 
 ## 树
 
