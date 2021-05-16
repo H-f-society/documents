@@ -1,5 +1,5 @@
 # [Home](../README.md)
-# Ubuntu简单安装Kafka
+## Ubuntu简单安装Kafka
 ## 安装jdk：
 	sudo apt-get install openjdk-8-jdk
 ## 获取kafka安装包：
