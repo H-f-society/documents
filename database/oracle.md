@@ -1,5 +1,14 @@
 # [Home](../README.md)
 
+### CRUD
+```sql
+  select * from tbName;
+  update tbName set a='b' where c = 'd';
+  delete from tbName where a='b';
+  drop table tbName;
+  truncate table tbName;
+```
+
 ### MERGE INTO
 > update 和 insert 共存，若存在就更新，不存在就插入
 
