@@ -32,7 +32,66 @@ ___________________________________________________________
 ___________________________________________________________
 
 ## 多线程
+![Thread](../images/Thread.png)
+### Thread
+```java
+public class Thread1 extends Thread {
+	private String name;
 
+	public Thread1(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 5; i++) {
+			System.out.println(name + "运行：" + i);
+			try {
+				sleep((int) Math.random() * 10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Thread1 t1 = new Thread1("A");
+		Thread1 t2 = new Thread1("B");
+		t1.start();
+		t2.start();
+	}
+}
+```
+### Runnable
+```java
+public class Thread2 implements Runnable {
+	private String name;
+
+	public Thread2(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 5; i++) {
+			System.out.println(name + "运行：" + i);
+			try {
+				Thread.sleep((int) Math.random() * 10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		new Thread(new Thread2("A")).start();
+		new Thread(new Thread2("B")).start();
+	}
+}
+```
+### sheep() 与 yield()
+>>> sleep()使当前线程进入停滞状态，所以执行sleep()的线程在指定的时间内肯定不会被执行。
+>>> yield()只是使当前线程重新回到可执行状态，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行。
 ## 设计模式
 ### 单例
 ![单例模式](../images/设计模式-单例.png)
