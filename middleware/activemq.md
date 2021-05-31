@@ -100,6 +100,7 @@ public class ActiveMQConfig {
 ```java
 @Component
 public class QueueConsumerListener {
+	
 	@JmsListener(destination = "${spring.activemq.queue-name}", containerFactory = "queueListener")
 	public void readactiveQueue(String message) {
 		System.out.println("Queue Message: " + message);
