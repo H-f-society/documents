@@ -94,6 +94,13 @@ synchronized void setB() throws Exception {
 #### 自旋锁
 - 当一个线程在获取锁的时候，如果该所已经被其它线程获取，那么该线程将循环等待，然后不断的判断该锁是否能够被成功获取，直到获取后才会退出循环。
 
+#### synnchronized和volatile
+- volatile关键字的本质是告诉jvm，该变量在寄存器中的值是不确定的，需要在主存中读取，而synchronized关键字是锁住当前变量，只有当前线程可以访问，其他线程等待。volatile关键字的作用：保证变量的可见性和防止指令重排序。
+	- volatile只能作用于变量，而synchronized可以作用于变量、方法和代码块。
+	- 多线程访问volatile不会发生阻塞，而synchronized关键字可能发生阻塞。
+	- volatile能够保证数据的可见性，就是在多个线程之间是可见的，不能保证原子性，而synchronized关键字都可以保证。
+	- volatile关键字主要解决的是多个线程之间的可见性，而synchronized关键字保证的是多个线程访问资源的同步性。
+
 ### Thread
 ```java
 public class Thread1 extends Thread {
