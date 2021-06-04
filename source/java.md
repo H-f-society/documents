@@ -94,7 +94,38 @@ synchronized void setB() throws Exception {
 #### 自旋锁
 - 当一个线程在获取锁的时候，如果该所已经被其它线程获取，那么该线程将循环等待，然后不断的判断该锁是否能够被成功获取，直到获取后才会退出循环。
 
-#### synnchronized和volatile
+#### Synchronized
+- 使用场景
+
+```java
+// 实例方法，锁住该类的实例对象
+public synchronized void method() {
+
+}
+
+// 静态方法，锁住该类的类对象
+public static synchronized void method() {
+
+}
+
+// 实例对象，同步代码块，锁住该类的实例对象
+synchronized (this) {
+
+}
+
+// class对象，同步代码块，锁住该类的类对象
+synchronized (SynchronizedDemo.class) {
+
+}
+
+// 任意实例对象Object，同步代码块，锁住配置的实例对象，String对象所谓锁
+String lock = ""; 
+synchronized (lock) {
+
+}
+```
+
+#### synchronized和volatile
 - volatile关键字的本质是告诉jvm，该变量在寄存器中的值是不确定的，需要在主存中读取，而synchronized关键字是锁住当前变量，只有当前线程可以访问，其他线程等待。volatile关键字的作用：保证变量的可见性和防止指令重排序。
 	- volatile只能作用于变量，而synchronized可以作用于变量、方法和代码块。
 	- 多线程访问volatile不会发生阻塞，而synchronized关键字可能发生阻塞。
