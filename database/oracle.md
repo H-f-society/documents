@@ -57,9 +57,13 @@ oracle          soft      stack   10240
 ### CRUD
 ```sql
 select * from tbName;
+
 update tbName set a='b' where c = 'd';
+
 delete from tbName where a='b';
+
 drop table tbName;
+
 truncate table tbName;
 ```
 

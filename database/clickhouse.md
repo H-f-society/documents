@@ -50,6 +50,16 @@
 	/etc/init.d/clickhouse-server start/stop/restart
 ```
 ## 基本应用
+### CRUD
+```sql
+	select * from dbName.tbName;
+
+	alter table dbName.tbName_local update field1='a' where b = 1;
+
+	alter table dbName.tbName_local delete where a=1;
+
+	insert into dbName.tbName() values();
+```
 ### 建表
 ```sql
 	CREATE TABLE IF NOT EXISTS dbName.tbName_local (
