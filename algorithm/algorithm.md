@@ -1,7 +1,8 @@
 # [Home](../README.md)
-# [数据结构与算法](https://www.cs.usfca.edu/~galles/visualization/)
+## [数据结构与算法](https://www.cs.usfca.edu/~galles/visualization/)
 
-## 树
+### 树
+#### 二叉数
 ``` java
 import java.util.*;
 
@@ -24,6 +25,7 @@ public class BinaryTree {
 		binTree.getAllPath(root, new ArrayList<>(), result);
 		System.out.println(result);
 	}
+	// 创建二叉树
 	public TreeNode createTree(int[] nums, int index) {
 		TreeNode node = null;
 		if (index < nums.length) {
@@ -33,6 +35,7 @@ public class BinaryTree {
 		}
 		return node;
 	}
+	// 二叉树的层次遍历
 	public List<List<Integer>> levelOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<>();
 		LinkedList<TreeNode> que = new LinkedList<>();
@@ -53,6 +56,7 @@ public class BinaryTree {
 		}
 		return result;
 	}
+	// 二叉树的全路径
 	public void getAllPath(TreeNode root, List<Integer> list, List<List<Integer>> result) {
 		if (root == null) return;
 		list.add(root.val);
@@ -64,17 +68,30 @@ public class BinaryTree {
 	}
 }
 ```
+#### 二叉搜索数
+#### B数
+#### 红黑树
 
-## 链表
+### 链表
+#### 单链表
+#### 双链表
+#### 循环链表
 
-## 栈
+### 栈
 
-## 队列
+### 队列
 
-## 图
-### 最短路径 - A Star 算法
-![]()
+### 堆
+#### 大顶堆
+#### 小顶堆
 
+### 图
+#### 深度优先搜索
+#### 广度优先搜索
+#### 最短路径
+##### Dijkstra 算法
+##### Floyd 算法
+##### AStar 算法
 ```java
 import java.util.*;
 
@@ -159,4 +176,15 @@ public class AStar {
 	}
 }
 ```
-
+### 排序算法
+#### 冒泡排序
+#### 选择排序
+#### 插入排序
+#### 希尔排序
+#### 堆排序
+#### 桶排序
+#### 睡眠排序（搞笑）
+#### 计数排序
+#### 基数排序
+#### 归并排序
+#### 快速排序
