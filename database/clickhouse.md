@@ -59,6 +59,14 @@
 	alter table dbName.tbName_local delete where a=1;
 
 	insert into dbName.tbName() values();
+
+	truncate table dbName.tbName_local;
+```
+
+### clickhouse客户端操作
+```shell
+	clickhouse-client --host ${ip} --port 9000 --format_csv_delimiter="${csvFileName}" \
+	--query="insert into dbName.tbName (${insertLine}) FORMAT CSVWithNames"
 ```
 ### 建表
 ```sql
