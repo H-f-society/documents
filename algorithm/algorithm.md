@@ -69,6 +69,68 @@ public class BinaryTree {
 }
 ```
 #### 二叉搜索数
+```java
+import java.util.*;
+import java.util.LinkedList;
+
+
+class BinaryTree {
+	int val;
+	BinaryTree leftchild;
+	BinaryTree rightchild;
+
+	public BinaryTree(int val) {
+		this.val   = val;
+		leftchild  = null;
+		rightchild = null;
+	}
+}
+public class BinarySearchTree {
+	public static int[] nums = {5, 3, 7, 2, 4, 6, 8};
+	public static BinaryTree root = null;
+	public static void main(String[] args) {
+		root = createBinaryTree(nums, 0);
+		System.out.println(levelOrder(root));
+	}
+	public static boolean Verification() {
+		
+		return true;
+	}
+	public static BinaryTree createBinaryTree(int[] nums, int index) {
+		BinaryTree BinaryTree = null;
+		if(index < nums.length) {
+			BinaryTree = new BinaryTree(nums[index]);
+			BinaryTree.leftchild	= createBinaryTree(nums, index * 2 + 1);
+			BinaryTree.rightchild = createBinaryTree(nums, index * 2 + 2);
+		}
+		return BinaryTree;
+	}
+	public static List<List<Integer>> levelOrder(BinaryTree root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        
+        if(root != null) {
+            LinkedList<BinaryTree> BinaryTree = new LinkedList<BinaryTree>();
+            
+            BinaryTree.add(root);
+            while(!BinaryTree.isEmpty()) {
+                int count = BinaryTree.size();
+                List<Integer> list = new ArrayList<Integer>();
+                while(count > 0) {
+                    root = BinaryTree.poll();
+                    list.add(root.val);
+                    if(root.leftchild != null)
+                        BinaryTree.add(root.leftchild);
+                    if(root.rightchild != null)
+                        BinaryTree.add(root.rightchild);
+                    count--;
+                }
+                result.add(list);
+            }
+        }
+        return result;
+    }
+}
+```
 #### B数
 #### 红黑树
 
@@ -418,22 +480,163 @@ public static void RadixSort() {
 ```
 #### 归并排序
 ```java
-public static void mergeSort(int[] nums, int[] result, int start, int end) {
-	if (start >= end) return;
-	int mid = ((end - start) >> 1) + start;
-	int start1 = start, end1 = mid;
-	int start2 = mid + 1, end2 = end;
-	mergeSort(nums, result, start1, end1);
-	mergeSort(nums, result, start2, end2);
-	int i = start;
-	while (start1 <= end1 && start2 <= end2)
-		result[i++] = nums[start1] < nums[start2] ? nums[start1++] : nums[start2++];
-	while (start1 <= end1)
-		result[i++] = nums[start1++];
-	while (start2 <= end2)
-		result[i++] = nums[start2++];
-	for (i = start; i <= end; i++)
-		nums[i] = result[i];
+import java.util.*;
+
+public class MergeSort {
+	public static void main(String[] args) {
+		int[] nums   = {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
+		int[] result = new int[nums.length];
+
+		merge(nums, result, 0, nums.length - 1);
+		printArr(result);
+	}
+	public static void merge(int[] nums, int[] result, int start, int end) {
+		if (start >= end) return;
+
+		int mid = ((end - start) / 2) + start;
+		int start1 = start, end1 = mid;
+		int start2 = mid + 1, end2 = end;
+		merge(nums, result, start1, end1);
+		merge(nums, result, start2, end2);
+		int i = start;
+		while (start1 <= end1 && start2 <= end2)
+			result[i++] = nums[start1] < nums[start2] ? nums[start1++] : nums[start2++];
+		while (start1 <= end1)
+			result[i++] = nums[start1++];
+		while (start2 <= end2)
+			result[i++] = nums[start2++];
+		for (i = start; i <= end; i++)
+			nums[i] = result[i];
+	}
+	public static void printArr(int[] nums) {
+		List<Integer> list = new ArrayList<>();
+		for (int i = 0; i < nums.length; i++) list.add(nums[i]);
+		System.out.println(list);
+	}
 }
 ```
 #### 快速排序
+
+### 逆波兰表达式
+```java
+/*
+* 逆波兰表达式
+* @Author: root
+* @Date:   2021-05-03 18:49:28
+* @Last Modified by:   f-society
+* @Last Modified time: 2021-05-06 13:56:48
+*/
+import java.util.*;
+
+public class ReversePolishNotation {
+	private static LinkedList<String> nums = new LinkedList<>();
+	private static LinkedList<Character> symbol = new LinkedList<>();
+
+	public static void main(String[] args) {
+		float result = create("5 * ((1 + 2) / 4.0) - 3");
+		System.out.println(result);
+	}
+	/**
+	 * 将中缀表达式转换为后缀表达式（构建逆波兰表达式）
+	 * @DateTime 2021-05-03T19:58:57+0800
+	 * @param    str                      [运算表达式]
+	 * @return                            [description]
+	 */
+	public static float create(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			if (' ' == str.charAt(i)) continue;
+			if (isNumber(str.charAt(i))) {
+				StringBuilder sb = new StringBuilder();
+				sb.append(str.charAt(i) + "");
+				while (i < str.length() - 1 && isNumber(str.charAt(i + 1))) {
+					sb.append(str.charAt(++i));
+				}
+				nums.add(sb.toString());
+			} else {
+				// 判断当前运算符优先级是否低于站内运算符
+				while (!symbol.isEmpty() && '(' != symbol.peekLast() && compare(str.charAt(i), symbol.peekLast())) {
+					nums.add(symbol.pollLast() + "");
+				}
+				if (')' != str.charAt(i)) {
+					symbol.add(str.charAt(i));
+				} else {
+					while (!symbol.isEmpty() && '(' != symbol.peekLast()) {
+						nums.add(symbol.pollLast() + "");
+					}
+					if (!symbol.isEmpty() && '(' == symbol.peekLast()) {
+						symbol.pollLast();
+					}
+				}
+			}
+		}
+		while (!symbol.isEmpty()) {
+			nums.add(symbol.pollLast() + "");
+		}
+		System.out.println(nums);
+		return calculate(nums);
+	}
+	/**
+	 * 计算逆波兰表达式
+	 * @DateTime 2021-05-03T19:59:22+0800
+	 * @param    nums                     [逆波兰表达式]
+	 * @return                            [description]
+	 */
+	public static float calculate(LinkedList<String> nums) {
+		if (nums.isEmpty()) return 0;
+		LinkedList<Float> stack = new LinkedList<>();
+		for (int i = 0; i < nums.size(); i++) {
+			if ("+".equals(nums.get(i))) {
+				stack.add(stack.pollLast() + stack.pollLast());
+			} else if ("-".equals(nums.get(i))) {
+				float num1 = stack.pollLast();
+				float num2 = stack.pollLast();
+				stack.add(num2 - num1);
+			} else if ("*".equals(nums.get(i))) {
+				stack.add(stack.pollLast() * stack.pollLast());
+			} else if ("/".equals(nums.get(i))) {
+				float num1 = stack.pollLast();
+				float num2 = stack.pollLast();
+				stack.add(num2 / num1);
+			} else {
+				stack.add(Float.valueOf(nums.get(i)));
+			}
+		}
+		return stack.get(0);
+	}
+	/**
+	 * 判断字符为有效数字，可能带小数点
+	 * @DateTime 2021-05-03T23:53:59+0800
+	 * @param    ch                       [字符数字]
+	 * @return                            [description]
+	 */
+	public static boolean isNumber(char ch) {
+		if (ch == '.') return true;
+		if (ch >= '0' && ch <= '9') return true;
+		return false;
+	}
+	/**
+	 * 运算符优先级
+	 * @DateTime 2021-05-03T22:55:41+0800
+	 * @param    ch                       [运算符]
+	 * @return                            [description]
+	 */
+	public static int priority(char ch) {
+		if ('+' == ch) return 0;
+		else if ('-' == ch) return 0;
+		else if ('*' == ch) return 1;
+		else if ('/' == ch) return 1;
+		return 0;
+	}
+	/**
+	 * 比较优先级
+	 * @DateTime 2021-05-03T23:54:28+0800
+	 * @param    ch1                      [当前运算符]
+	 * @param    ch2                      [栈内运算符]
+	 * @return                            [description]
+	 */
+	public static boolean compare(char ch1, char ch2) {
+		if ('(' == ch1 || ')' == ch2) return false;
+		return priority(ch1) <= priority(ch2);
+	}
+}
+```
