@@ -359,7 +359,10 @@ public class AStar {
 }
 ```
 ### 排序算法
+![排序算法](../images/算法复杂度.png)
 #### 冒泡排序
+![冒泡排序](../images/bubblesort.gif)
+
 ```java
 public static void bubbleSort() {
 	int[] nums = {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
@@ -376,9 +379,14 @@ public static void bubbleSort() {
 }
 ```
 #### 选择排序
+![选择排序](../images/selectionsort.gif)
 #### 插入排序
+![插入排序](../images/insertionsort.gif)
 #### 希尔排序
+![希尔排序](../images/shellsort.gif)
 #### 堆排序
+![堆排序](../images/heapsort.gif)
+
 ```java
 public class Heap {
 	private int[] data;
@@ -439,8 +447,11 @@ public class Heap {
 }
 ```
 #### 桶排序
+![桶排序](../images/bucketsort.png)
 #### 睡眠排序（搞笑）
 #### 计数排序
+![计数排序](../images/countingsort.gif)
+
 ```java
 public static void countSort() {
 	int[] nums = {6, 7, 4, 9, 6, 1, 5, 3, 0, 1, 2, 9, 6, 8};
@@ -456,6 +467,8 @@ public static void countSort() {
 }
 ```
 #### 基数排序
+![基数排序](../images/radixsort.gif)
+
 ```java
 public static void RadixSort() {
 	int[] nums = {3, 44, 38, 5, 47, 35, 36, 26, 27, 2, 46, 4, 19, 50, 48};
@@ -479,6 +492,8 @@ public static void RadixSort() {
 }
 ```
 #### 归并排序
+![归并排序](../images/mergesort.gif)
+
 ```java
 import java.util.*;
 
@@ -516,6 +531,7 @@ public class MergeSort {
 }
 ```
 #### 快速排序
+![快速排序](../images/quicksort.gif)
 
 ### 逆波兰表达式
 ```java
