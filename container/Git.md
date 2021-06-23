@@ -10,3 +10,8 @@
 	git pull
 	git push origin master
 ```
+
+### 获取最近一次修改的文件
+```shell
+	git diff --name-only head~
+```
