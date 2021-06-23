@@ -61,6 +61,9 @@
 	insert into dbName.tbName() values();
 
 	truncate table dbName.tbName_local;
+
+	drop table if exists dbName.tbName_local;
+	drop table if exists dbName.tbName;
 ```
 
 ### clickhouse-client
