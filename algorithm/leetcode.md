@@ -1,6 +1,33 @@
 # [Home](../README.md)
 # [LeetCode](https://leetcode-cn.com/)
 
+## 20. [<font color=green>有效的括号</font>](https://leetcode-cn.com/problems/valid-parentheses/)
+```java
+class Solution {
+	public boolean isValid(String s) {
+		if (s.length() % 2 == 1) {
+			return false;
+		}
+		Map<Character, Character> map = new HashMap<>();
+		map.put(']', '[');
+		map.put('}', '{');
+		map.put(')', '(');
+		Deque<Character> stack = new LinkedList<>();
+		for (char ch : s.toCharArray()) {
+			if (!map.containsKey(ch)) {
+				stack.push(ch);
+			} else {
+				if (!stack.isEmpty() && stack.peek().equals(map.get(ch))) {
+					stack.pop();
+				} else {
+					return false;
+				}
+			}
+		}
+		return stack.isEmpty();
+	}
+}
+```
 ## 23. [<font color=red>合并K个升序链表</font>](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 ```java
