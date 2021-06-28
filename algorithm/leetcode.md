@@ -391,6 +391,36 @@ class Solution {
 	}
 }
 ```
+## 71. [<font color=yellow>简化路径</font>](https://leetcode-cn.com/problems/simplify-path/)
+```java
+class Solution {
+	public String simplifyPath(String path) {
+		Deque<String> stack = new LinkedList<>();
+		String[] tmp = path.split("/");
+		for (String str : tmp) {
+			if ("".equals(str) || ".".equals(str)) {
+				continue;
+			}
+			if (stack.isEmpty() && "..".equals(str)) {
+				continue;
+			}
+			if (!stack.isEmpty() && "..".equals(str)) {
+				stack.removeLast();
+			} else {
+				stack.add(str);
+			}
+		}
+		StringBuilder sb = new StringBuilder("/");
+		while (!stack.isEmpty()) {
+			sb.append(stack.pollFirst());
+			if (!stack.isEmpty()) {
+				sb.append("/");
+			}
+		}
+		return "".equals(sb.toString()) ? "/" : sb.toString();
+	}
+}
+```
 ## 79. [<font color=yellow>单词搜索</font>](https://leetcode-cn.com/problems/word-search)
 ![单词搜索](https://assets.leetcode.com/uploads/2020/11/04/word2.jpg)
 
