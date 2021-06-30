@@ -6,7 +6,7 @@
 |[books][books]	|[leetcode][leetcode]	|[sublime][sublime]	|[java][java]	|[spring boot][spring boot]		|[kafka][kafka]			|[redis][redis]				|[git][git]			|
 |				|[algorithm][algorithm]	|[idea][idea]		|[jvm][jvm]		|[spring cloud][spring cloud]	|[ibmmq][ibmmq]			|[orcle][orcle]				|[maven][maven]		|
 |				|						|[linux][linux]		|[juc][juc]		|								|[activemq][activemq]	|[mysql][mysql]				|[docker][docker]	|
-|				|						|					|				|								|						|[hive][hive]				|					|
+|				|						|					|				|								|[datahub][datahub]		|[hive][hive]				|					|
 |				|						|					|				|								|						|[clickhouse][clickhouse]	|					|
 
 ---
@@ -30,6 +30,7 @@
 [kafka]: ./middleware/kafka.md
 [ibmmq]: ./middleware/IBMMQ.md
 [activemq]: ./middleware/activemq.md
+[datahub]: ./middleware/datahub.md
 
 [redis]: ./database/redis.md
 [orcle]: ./database/oracle.md

@@ -65,6 +65,8 @@ delete from tbName where a='b';
 drop table tbName;
 
 truncate table tbName;
+
+create table tbname2 as select * from tbname1;
 ```
 
 ### MERGE INTO
@@ -85,6 +87,15 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED THEN
 	insert (a.c, a.d) 
 	values (b.c, b.d)
+```
+### 分页查询
+> 取 800 到 1000 行的数
+
+```sql
+   select * from (
+      select a.*, rownum as rno from tbName a where rownum <=1000
+   ) b
+   where b.rno > 800
 ```
 
 ### 存储过程
@@ -112,3 +123,15 @@ End;
 ```
 
 ### 存储函数
+
+
+### 常用函数
+```sql
+   chr(9)  -- 制表符 
+   chr(10) -- 换行符
+   chr(13) -- 回车符
+   ceil(0.1) -- 向上取整
+   floor(0.1) -- 向下取整
+   trunc(-1.002) -- 截取
+   round(-1.001) --四舍五入取整
+```
