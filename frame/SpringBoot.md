@@ -34,19 +34,19 @@
 1. 标头(Header), Base64
 
 ```json
-	{
-		"alg" : "HS256",
-		"typ" : "JWT"
-	}
+{
+	"alg" : "HS256",
+	"typ" : "JWT"
+}
 ```
 2. 有效载荷(Payload), Base64
 
 ```json
-	{
-		"sub" : "123456",
-		"name" : "root",
-		"admin" : true
-	}
+{
+	"sub" : "123456",
+	"name" : "root",
+	"admin" : true
+}
 ```
 3. 签名(Signature)
 
@@ -67,7 +67,8 @@ HMACSHA256(base64UrkEncode(header) + "." + base64UrlEncode(payload), secret)
 这个类声明了一个JWT过滤器类，从Http请求中提取JWT的信息，并使用了secretkey这个密匙对JWT进行验证。
 
 
-## Shiro :
+## [Shiro](https://www.docs4dev.com/docs/zh/apache-shiro/1.5.3/reference/introduction.html)
 
-## Security :
+## [Spring Security](https://www.docs4dev.com/docs/zh/spring-security/5.1.2.RELEASE/reference/community.html)
+### CSRF
 
