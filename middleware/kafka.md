@@ -51,6 +51,20 @@
 ```shell
 	bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topTest --from-beginning
 ```
+## 特性：
+- 消息持久化
+- 高吞吐
+- 高容错
+- 易扩展
+- 灵活性
+- 支持
+
+## ack机制：
+- 指的是producer的消息发送确认机制，这直接影响到Kafka集群的吞吐量和消息可靠性。
+
+	- ack = 1
+	- ack = 0
+	- ack = -1
 
 ## kafka幂等性：
 ![kafka幂等性](../images/kafka幂等性.png)

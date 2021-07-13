@@ -486,6 +486,41 @@ class Solution {
 	}
 }
 ```
+
+## 169. [<font color=green>多数元素</font>](https://leetcode-cn.com/problems/majority-element/)
+```java
+class Solution {
+	public int majorityElement(int[] nums) {
+		int major = nums[0];
+		int count = 1;
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] == major) {
+				count++;
+			} else if (count - 1 == 0) {
+				major = nums[i];
+				count = 1;
+			} else {
+				count--;
+			}
+		}
+		if (count == 0) {
+			return -1;
+		}
+		int tmp = nums.length >> 1;
+		int count2 = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == major) {
+				count2++;
+				if (count2 > tmp) {
+					return major;
+				}
+			}
+		}
+		return -1;
+	}
+}
+```
+
 ## 212. [<font color=red>单词搜索II</font>](https://leetcode-cn.com/problems/word-search-ii)
 ![单词搜索](https://assets.leetcode.com/uploads/2020/11/07/search1.jpg)
 
@@ -543,6 +578,20 @@ class Solution {
 	}
 }
 ```
+
+## 223. [<font color=yellow>矩形面积</font>](https://leetcode-cn.com/problems/rectangle-area/)
+![矩形面积](https://assets.leetcode.com/uploads/2021/05/08/rectangle-plane.png)
+
+```java
+class Solution {
+	public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+		int x = Math.max(0, Math.min(bx2, ax2) - Math.max(bx1, ax1));
+		int y = Math.max(0, Math.min(by2, ay2) - Math.max(by1, ay1));
+		return (ax2 - ax1) * (ay2 - ay1) + (bx2 - bx1) * (by2 - by1) - x * y;
+	}
+}
+```
+
 ## 224. [<font color=red>基本计算器</font>](https://leetcode-cn.com/problems/basic-calculator/)
 ```java
 class Solution {
