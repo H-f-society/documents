@@ -882,6 +882,28 @@ class Solution {
 	}
 }
 ```
+## 814. [<font color=yellow>二叉树剪枝</font>](https://leetcode-cn.com/problems/binary-tree-pruning/)
+```java
+class Solution {
+	public TreeNode pruneTree(TreeNode root) {
+		TreeNode result = dfs(root);
+		return result;
+	}
+
+	public TreeNode dfs(TreeNode root) {
+		if (root.left != null) {
+			root.left = dfs(root.left);
+		}
+		if (root.right != null) {
+			root.right = dfs(root.right);
+		}
+		if (root != null && root.val == 0 && root.left == null && root.right == null) {
+			return null;
+		}
+		return root;
+	}
+}
+```
 ## 1091. [<font color=yellow>二进制矩阵中的最短路径</font>](https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/)
 ```java
 class Solution {
