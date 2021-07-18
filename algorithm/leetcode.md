@@ -1,5 +1,6 @@
 # [Home](../README.md)
 # [LeetCode](https://leetcode-cn.com/)
+![个人进度](../images/leetcode_me.png)
 
 ## 20. [<font color=green>有效的括号</font>](https://leetcode-cn.com/problems/valid-parentheses/)
 ```java
