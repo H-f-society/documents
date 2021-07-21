@@ -2,7 +2,7 @@
 ## [数据结构与算法](https://www.cs.usfca.edu/~galles/visualization/)
 
 ### 树
-#### 二叉数
+#### Binary Trees
 ``` java
 import java.util.*;
 
@@ -68,11 +68,10 @@ public class BinaryTree {
 	}
 }
 ```
-#### 二叉搜索数
+#### Binary Search Trees
 ```java
 import java.util.*;
 import java.util.LinkedList;
-
 
 class BinaryTree {
 	int val;
@@ -131,8 +130,10 @@ public class BinarySearchTree {
     }
 }
 ```
-#### B数
-#### 红黑树
+#### AVL Tree
+#### B-Tree
+#### B+Tree
+#### Red Black Tree
 
 ### 链表
 #### 单链表

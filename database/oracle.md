@@ -93,9 +93,17 @@ WHEN NOT MATCHED THEN
 
 ```sql
    select * from (
-      select a.*, rownum as rno from tbName a where rownum <=1000
+      select a.*, rownum as rno from tbName a where rownum <= 1000
    ) b
    where b.rno > 800
+```
+### 递归查询
+> 通过根节点id向下递归所有子节点
+
+```sql
+   select * from dbName.tbName
+   connect by prior id = parentId
+   start with id = '000000'
 ```
 
 ### 存储过程
