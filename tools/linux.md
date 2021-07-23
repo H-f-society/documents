@@ -18,7 +18,7 @@ echo "U2FsdGVkX19nGdcPGq41k5Nq92WRzXIkH1YVcBAjJpQ=" | tr ' ' '\n' | openssl aes-
 ```
 
 ```shell
-Standard commands
+#Standard commands
 asn1parse         ca                ciphers           cms
 crl               crl2pkcs7         dgst              dhparam
 dsa               dsaparam          ec                ecparam
@@ -32,7 +32,7 @@ s_server          s_time            sess_id           smime
 speed             spkac             srp               storeutl
 ts                verify            version           x509
 
-Message Digest commands (see the `dgst' command for more details)
+#Message Digest commands (see the `dgst' command for more details)
 blake2b512        blake2s256        gost              md4
 md5               mdc2              rmd160            sha1
 sha224            sha256            sha3-224          sha3-256
@@ -40,7 +40,7 @@ sha3-384          sha3-512          sha384            sha512
 sha512-224        sha512-256        shake128          shake256
 sm3
 
-Cipher commands (see the `enc' command for more details)
+#Cipher commands (see the `enc' command for more details)
 aes-128-cbc       aes-128-ecb       aes-192-cbc       aes-192-ecb
 aes-256-cbc       aes-256-ecb       aria-128-cbc      aria-128-cfb
 aria-128-cfb1     aria-128-cfb8     aria-128-ctr      aria-128-ecb
