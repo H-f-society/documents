@@ -1,4 +1,6 @@
 # [Home](../README.md)
+# [Idea](https://www.apiref.com/linux-zh/linux-command-manual.html)
+
 ## 快捷键：
 - CamelCase: [Shift + Alt + U], 驼峰、下划线等命名风格
 - ctrl+shift+a：找类
