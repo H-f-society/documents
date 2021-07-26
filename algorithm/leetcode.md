@@ -812,6 +812,43 @@ class Solution {
 	}
 }
 ```
+## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](https://leetcode-cn.com/problems/next-greater-element-ii/)
+```java
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        int[] result = new int[nums.length];
+        Arrays.fill(result, -1);
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < nums.length * 2; i++) {
+            while (!stack.isEmpty() && nums[stack.peek()] < nums[i % nums.length]) {
+                result[stack.pop()] = nums[i % nums.length];
+            }
+            stack.push(i % nums.length);
+        }
+        return result;
+    }
+}
+```
+## 509. [<font color="green">斐波那契数</font>](https://leetcode-cn.com/problems/fibonacci-number/)
+```java
+class Solution {
+	public int fib(int N) {
+
+		if (N == 0 || N == 1) return N;
+
+		int[] result = new int[N + 1];
+		result[0] = 0;
+		result[1] = 1;
+		for (int i = 2; i <= N; i++) {
+			result[i] = result[i - 1] + result[i - 2];
+		}
+		return result[N];
+
+		// 递归
+		// return fib(N-1) + fib(N-2);
+	}
+}
+```
 ## 529. [<font color=yellow>扫雷游戏</font>](https://leetcode-cn.com/problems/minesweeper)
 ![扫雷游戏](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_1.png)
 
@@ -860,26 +897,6 @@ class Solution {
 		if (x >= 0 && x < map.length && y >= 0 && y < map[0].length)
 			return true;
 		return false;
-	}
-}
-```
-## 509. [<font color="green">斐波那契数</font>](https://leetcode-cn.com/problems/fibonacci-number/)
-```java
-class Solution {
-	public int fib(int N) {
-
-		if (N == 0 || N == 1) return N;
-
-		int[] result = new int[N + 1];
-		result[0] = 0;
-		result[1] = 1;
-		for (int i = 2; i <= N; i++) {
-			result[i] = result[i - 1] + result[i - 2];
-		}
-		return result[N];
-
-		// 递归
-		// return fib(N-1) + fib(N-2);
 	}
 }
 ```
