@@ -29,6 +29,7 @@ class Solution {
 	}
 }
 ```
+
 ## 23. [<font color=red>合并K个升序链表</font>](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 ```java
@@ -70,6 +71,7 @@ class Solution {
 	}
 }
 ```
+
 ## 25. [<font color=red>K个一组翻转链表</font>](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 ![K个一组翻转链表](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex1.jpg)
 
@@ -118,6 +120,7 @@ class Solution {
 	}
 }
 ```
+
 ## 32. [<font color=red>最长有效括号</font>](https://leetcode-cn.com/problems/longest-valid-parentheses/)
 ```java
 class Solution {
@@ -155,6 +158,7 @@ class Solution {
 	}
 }
 ```
+
 ## 36. [<font color=yellow>有效的数独</font>](https://leetcode-cn.com/problems/valid-sudoku/)
 ![有效的数独](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png)
 
@@ -192,6 +196,7 @@ class Solution {
 	}
 }
 ```
+
 ## 37. [<font color=red>解数独</font>](https://leetcode-cn.com/problems/sudoku-solver/)
 ![解数独](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png)
 
@@ -235,6 +240,7 @@ class Solution {
 	}
 }
 ```
+
 ## 41. [<font color=red>缺失的第一个整数</font>](https://leetcode-cn.com/problems/first-missing-positive/)
 ```java
 class Solution {
@@ -253,6 +259,7 @@ class Solution {
 	}
 }
 ```
+
 ## 42. [<font color=red>接雨水</font>](https://leetcode-cn.com/problems/trapping-rain-water)
 ![接雨水](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png)
 
@@ -281,6 +288,7 @@ class Solution {
 }
 
 ```
+
 ## 48. [<font color=yellow>旋转图像</font>](https://leetcode-cn.com/problems/rotate-image/)
 ![旋转图像](https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg)
 
@@ -303,6 +311,7 @@ class Solution {
 	}
 }
 ```
+
 ## 51. [<font color=red>N皇后</font>](https://leetcode-cn.com/problems/n-queens)
 ![N皇后](https://assets.leetcode.com/uploads/2020/11/13/queens.jpg)
 
@@ -356,6 +365,7 @@ class Solution {
 
 }
 ```
+
 ## 52. [<font color=red>N皇后II</font>](https://leetcode-cn.com/problems/n-queens-ii)
 ```java
 class Solution {
@@ -392,6 +402,7 @@ class Solution {
 	}
 }
 ```
+
 ## 71. [<font color=yellow>简化路径</font>](https://leetcode-cn.com/problems/simplify-path/)
 ```java
 class Solution {
@@ -422,6 +433,7 @@ class Solution {
 	}
 }
 ```
+
 ## 79. [<font color=yellow>单词搜索</font>](https://leetcode-cn.com/problems/word-search)
 ![单词搜索](https://assets.leetcode.com/uploads/2020/11/04/word2.jpg)
 
@@ -461,6 +473,7 @@ class Solution {
 }
 
 ```
+
 ## 150. [<font color=yellow>逆波兰表达式求值</font>](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation)
 ```java
 class Solution {
@@ -679,6 +692,7 @@ class Solution {
 	}
 }
 ```
+
 ## 233. [<font color=red>数字1的个数</font>](https://leetcode-cn.com/problems/number-of-digit-one)
 ```java
 class Solution {
@@ -697,6 +711,7 @@ class Solution {
 	}
 }
 ```
+
 ## 239. [<font color=red>滑动窗口最大值</font>](https://leetcode-cn.com/problems/sliding-window-maximum/)
 ```java
 class Solution {
@@ -731,6 +746,7 @@ class Solution {
 }
 
 ```
+
 ## 289. [<font color=yellow>生命游戏</font>](https://leetcode-cn.com/problems/game-of-life)
 ```java
 class Solution {
@@ -771,6 +787,7 @@ class Solution {
 	}
 }
 ```
+
 ## 315. [<font color=red>计算右侧小于当前元素的个数</font>](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self)
 ```java
 class Solution {
@@ -812,6 +829,7 @@ class Solution {
 	}
 }
 ```
+
 ## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](https://leetcode-cn.com/problems/next-greater-element-ii/)
 ```java
 class Solution {
@@ -829,6 +847,7 @@ class Solution {
     }
 }
 ```
+
 ## 509. [<font color="green">斐波那契数</font>](https://leetcode-cn.com/problems/fibonacci-number/)
 ```java
 class Solution {
@@ -849,6 +868,7 @@ class Solution {
 	}
 }
 ```
+
 ## 529. [<font color=yellow>扫雷游戏</font>](https://leetcode-cn.com/problems/minesweeper)
 ![扫雷游戏](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_1.png)
 
@@ -900,6 +920,7 @@ class Solution {
 	}
 }
 ```
+
 ## 814. [<font color=yellow>二叉树剪枝</font>](https://leetcode-cn.com/problems/binary-tree-pruning/)
 ```java
 class Solution {
@@ -922,6 +943,7 @@ class Solution {
 	}
 }
 ```
+
 ## 1091. [<font color=yellow>二进制矩阵中的最短路径</font>](https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/)
 ```java
 class Solution {
@@ -964,6 +986,7 @@ class Solution {
 	}
 }
 ```
+
 ## 1138. [<font color=yellow>字母版上的路径</font>](https://leetcode-cn.com/problems/alphabet-board-path/)
 ![字母板上的路径](https://assets.leetcode.com/uploads/2019/07/28/azboard.png)
 
