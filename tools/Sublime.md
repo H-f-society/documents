@@ -1,5 +1,5 @@
 # [Home](../README.md)
-# [Sublime](https://www.sublimetext.com/)
+## [Sublime](https://www.sublimetext.com/)
 
 ### 常用快捷键
 - CTRL+N：新建文件
