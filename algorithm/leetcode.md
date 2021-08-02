@@ -848,7 +848,7 @@ class Solution {
 }
 ```
 
-## 509. [<font color="green">斐波那契数</font>](https://leetcode-cn.com/problems/fibonacci-number/)
+## 509. [<font color=green>斐波那契数</font>](https://leetcode-cn.com/problems/fibonacci-number/)
 ```java
 class Solution {
 	public int fib(int N) {
