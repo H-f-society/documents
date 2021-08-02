@@ -2,6 +2,73 @@
 # [LeetCode](https://leetcode-cn.com/)
 ![个人进度](../images/leetcode_me.png)
 
+## 3. [<font color=yellow>无重复字符的最长子串</font>](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+```java
+class Solution {
+	public int lengthOfLongestSubstring(String s) {
+		if (s.length() == 0 || s.length() == 1) {
+			return s.length();
+		}
+		int result = 0;
+		Deque<Character> que = new LinkedList<>();
+		Set<Character> set = new HashSet<>();
+		for (int i = 0; i < s.length(); i++) {
+			if (!set.contains(s.charAt(i))) {
+				set.add(s.charAt(i));
+				que.offer(s.charAt(i));
+			} else {
+				while (!que.isEmpty() && que.getFirst() != s.charAt(i)) {
+					set.remove(que.getFirst());
+					que.removeFirst();
+				}
+				if (!que.isEmpty()) {
+					que.removeFirst();
+				}
+				set.add(s.charAt(i));
+				que.offer(s.charAt(i));
+			}
+			if (que.size() > result) {
+				result = que.size();
+			}
+		}
+		return result;
+	}
+}
+```
+
+## 4. [<font color=red>寻找两个正序数组的中位数</font>](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+```java
+class Solution {
+	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+		int[] result = new int[nums1.length + nums2.length];
+		int index = 0;
+		int i = 0;
+		int j = 0;
+		while (nums1.length > i || nums2.length > j) {
+			if (nums1.length <= i && nums2.length > j) {
+				result[index++] = nums2[j++];
+				continue;
+			}
+			if (nums1.length > i && nums2.length <= j) {
+				result[index++] = nums1[i++];
+				continue;
+			}
+			if (nums1[i] <= nums2[j]) {
+				result[index++] = nums1[i++];
+				continue;
+			} else {
+				result[index++] = nums2[j++];
+				continue;
+			}
+		}
+		if ((result.length & 1) == 0) {
+			return (result[result.length >> 1] + result[(result.length >> 1) - 1]) / 2.00;
+		}
+		return result[result.length >> 1] / 1.00;
+	}
+}
+```
+
 ## 20. [<font color=green>有效的括号</font>](https://leetcode-cn.com/problems/valid-parentheses/)
 ```java
 class Solution {
