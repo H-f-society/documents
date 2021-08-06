@@ -52,6 +52,19 @@ oracle          hard      nproc   16384
 oracle          soft      nofile  1024
 oracle          hard      nofile  65536
 oracle          soft      stack   10240
+
+## 启动oracle
+# 1. 切换用户 
+    su - oracle #使用户环境变量生效
+# 2. 检查监听
+    lsnrctl  status # 查看状态
+    lsnrctl  start   #启动监听
+# 3. 登录SqlPlus
+    sqlplus /nolog
+# 4. 登录数据库
+    conn  / as sysdba
+# 5. 启动数据库
+    startup
 ```
 
 ### CRUD
