@@ -1,8 +1,17 @@
 # [Home](../README.md)
-# [Linux](https://www.apiref.com/linux-zh/linux-command-manual.html)
+## [Linux](https://www.apiref.com/linux-zh/linux-command-manual.html)
 
 ![linux](https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg)
 
+### Linux发行版
+- [Ubuntu](http://www.ubuntu.com/)
+- [Fedora](http://fedoraproject.org/)
+- [Debian](http://www.debian.org/)
+- [CentOS](http://www.centos.org/)
+- [Arch](https://www.archlinux.org/)
+- [Kali](https://www.kali.org/)
+- [ElementaryOS](https://elementary.io/zh_CN/)
+- [Nitrux](https://nxos.org/)
 ### openssl
 > 加密
 
