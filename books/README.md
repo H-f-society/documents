@@ -8,3 +8,5 @@
 	- [阿里巴巴Java开发手册.pdf](./java/阿里巴巴Java开发手册.pdf)
 	- [OnJava8](./java/OnJava8_Chniese.pdf)
 	- [由浅入深Java并发](./java/由浅入深Java并发.pdf)
+	- [Spring Cloud 系列文章](./java/Spring_Cloud_系列文章.pdf)
+	- [设计模式](./java/设计模式.pdf)
