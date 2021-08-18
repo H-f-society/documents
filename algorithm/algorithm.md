@@ -186,9 +186,17 @@ public class TrieTree {
 }
 ```
 #### AVL Tree
+```java
+```
 #### B-Tree
+```java
+```
 #### B+Tree
+```java
+```
 #### Red Black Tree
+```java
+```
 
 ### 链表
 #### 单链表
@@ -313,15 +321,26 @@ public class LinkList<T> {
 }
 ```
 #### 双链表
+```java
+```
 #### 循环链表
-
+```java
+```
 ### 栈
 #### 单调递增栈
+```java
+```
 #### 单调递减栈
+```java
+```
 ### 队列
-
+```java
+```
 ### 堆
 #### 大顶堆
+```java
+```
+
 #### 小顶堆
 ```java
 public class Heap {
@@ -385,10 +404,22 @@ public class Heap {
 
 ### 图
 #### 深度优先搜索
+```java
+```
+
 #### 广度优先搜索
+```java
+```
+
 #### 最短路径
 ##### Dijkstra 算法
+```java
+```
+
 ##### Floyd 算法
+```java
+```
+
 ##### AStar 算法
 ```java
 import java.util.*;
@@ -474,8 +505,13 @@ public class AStar {
 	}
 }
 ```
+
 ### 排序算法
 ![排序算法](../images/算法复杂度.png)
+
+```java
+```
+
 #### 冒泡排序
 ![冒泡排序](../images/bubblesort.gif)
 
@@ -494,12 +530,25 @@ public static void bubbleSort() {
 	printArr(nums, "冒泡排序");
 }
 ```
+
 #### 选择排序
 ![选择排序](../images/selectionsort.gif)
+
+```java
+```
+
 #### 插入排序
 ![插入排序](../images/insertionsort.gif)
+
+```java
+```
+
 #### 希尔排序
 ![希尔排序](../images/shellsort.gif)
+
+```java
+```
+
 #### 堆排序
 ![堆排序](../images/heapsort.gif)
 
@@ -565,6 +614,8 @@ public class Heap {
 #### 桶排序
 ![桶排序](../images/bucketsort.png)
 #### 睡眠排序（搞笑）
+```java
+```
 #### 计数排序
 ![计数排序](../images/countingsort.gif)
 
@@ -648,6 +699,9 @@ public class MergeSort {
 ```
 #### 快速排序
 ![快速排序](../images/quicksort.gif)
+
+```java
+```
 
 ### 逆波兰表达式
 ```java
@@ -771,4 +825,52 @@ public class ReversePolishNotation {
 		return priority(ch1) <= priority(ch2);
 	}
 }
+```
+### 串的模式匹配
+#### KMP
+```java
+public class KMP {
+	public static int[] next;
+
+	public static void main(String[] args) {
+		String word = "fuck you";
+		String key  = "ck yo";
+		next = new int[key.length()];
+
+		getNext(key, next);
+		System.out.println(indexOf(word, key));
+	}
+	public static void getNext(String key, int[] next) {
+		int i = 0, j = -1;
+		next[0] = -1;
+		while (i < key.length() - 1) {
+			if (j == -1 || key.charAt(i) == key.charAt(j)) {
+				i++;
+				j++;
+				next[i] = j;
+			} else {
+				j = next[j];
+			}
+		}
+	}
+	public static boolean indexOf(String word, String key) {
+		int i = 0, j = 0;
+		while (i < word.length() && j < key.length()) {
+			if (j == -1 || word.charAt(i) == key.charAt(j)) {
+				i++;
+				j++;
+			} else {
+				j = next[j];
+			}
+			if (j == key.length() - 1 && word.charAt(i) == key.charAt(j)) {
+				return true;
+			}
+		}
+		return false;
+	}
+}
+```
+
+#### Boyer-Moore
+```java
 ```
