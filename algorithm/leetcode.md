@@ -897,6 +897,35 @@ class Solution {
 }
 ```
 
+## 443. [<font color=yellow>压缩字符串</font>](https://leetcode-cn.com/problems/string-compression)
+```java
+class Solution {
+	public int compress(char[] chars) {
+		int index = 0, count, j;
+		String num = "";
+		for (int i = 0; i < chars.length; i++) {
+			count = 0;
+			j = i;
+			while (j < chars.length && chars[j] == chars[i]) {
+				count++;
+				j++;
+			}
+			chars[index++] = chars[i];
+			if (count > 1) {
+				num = String.valueOf(count);
+				for (int k = 0; k < num.length(); k++) {
+					chars[index++] = num.charAt(k);
+				}
+			} else {
+				num = "";
+			}
+			i = j - 1;
+		}
+		return index;
+	}
+}
+```
+
 ## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](https://leetcode-cn.com/problems/next-greater-element-ii/)
 ```java
 class Solution {
