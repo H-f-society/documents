@@ -15,9 +15,14 @@
 
 ### 基本操作
 ```shell
-#关闭防火墙
+# 关闭防火墙
 systemctl stop firewalld.service
 
+# 网卡配置路径
+/etc/sysconfig/network-scripts	
+
+# 重启网卡
+systemctl restart network
 ```
 ### openssl
 > 加密
