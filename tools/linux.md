@@ -13,6 +13,12 @@
 - [ElementaryOS](https://elementary.io/zh_CN/)
 - [Nitrux](https://nxos.org/)
 
+### 基本操作
+```shell
+#关闭防火墙
+systemctl stop firewalld.service
+
+```
 ### openssl
 > 加密
 

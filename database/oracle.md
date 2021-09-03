@@ -60,11 +60,21 @@ oracle          soft      stack   10240
     lsnrctl  status # 查看状态
     lsnrctl  start   #启动监听
 # 3. 登录SqlPlus
+    # sqlplus / as sysdba
     sqlplus /nolog
 # 4. 登录数据库
     conn  / as sysdba
 # 5. 启动数据库
     startup
+
+## oracle sys密码的重置：
+alter user sys identified by change_on_install;
+alter user sys account unlock;
+
+## oracle有三个默认的用户名和密码~
+- 用户名: sys 密码: change_on_install
+- 用户名: system 密码: manager
+- 用户名: scott 密码: tiger
 ```
 
 ### CRUD

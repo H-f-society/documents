@@ -2,7 +2,7 @@
 # [LeetCode](https://leetcode-cn.com/)
 ![个人进度](../images/leetcode_me.png)
 
-## 3. [<font color=yellow>无重复字符的最长子串</font>](./leetcode/3.md) [](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+## 3. [<font color=yellow>无重复字符的最长子串</font>](./leetcode/medium/3.md) [](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
 ```java
 class Solution {
 	public int lengthOfLongestSubstring(String s) {
@@ -36,7 +36,7 @@ class Solution {
 }
 ```
 
-## 4. [<font color=red>寻找两个正序数组的中位数</font>](./leetcode/4.md) [](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+## 4. [<font color=red>寻找两个正序数组的中位数</font>](./leetcode/hard/4.md) [](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 ```java
 class Solution {
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -69,7 +69,7 @@ class Solution {
 }
 ```
 
-## 20. [<font color=green>有效的括号</font>](./leetcode/20.md) [](https://leetcode-cn.com/problems/valid-parentheses/)
+## 20. [<font color=green>有效的括号</font>](./leetcode/easy//20.md) [](https://leetcode-cn.com/problems/valid-parentheses/)
 ```java
 class Solution {
 	public boolean isValid(String s) {
@@ -97,7 +97,7 @@ class Solution {
 }
 ```
 
-## 23. [<font color=red>合并K个升序链表</font>](./leetcode/23.md) [](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+## 23. [<font color=red>合并K个升序链表</font>](./leetcode/hard/23.md) [](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 ```java
 /**
@@ -139,7 +139,7 @@ class Solution {
 }
 ```
 
-## 25. [<font color=red>K个一组翻转链表</font>](./leetcode/25.md) [](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+## 25. [<font color=red>K个一组翻转链表</font>](./leetcode/hard/25.md) [](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 ![K个一组翻转链表](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex1.jpg)
 
 ```java
@@ -188,7 +188,7 @@ class Solution {
 }
 ```
 
-## 32. [<font color=red>最长有效括号</font>](./leetcode/32.md) [](https://leetcode-cn.com/problems/longest-valid-parentheses/)
+## 32. [<font color=red>最长有效括号</font>](./leetcode/hard/32.md) [](https://leetcode-cn.com/problems/longest-valid-parentheses/)
 ```java
 class Solution {
 	public int longestValidParentheses(String s) {
@@ -226,7 +226,7 @@ class Solution {
 }
 ```
 
-## 36. [<font color=yellow>有效的数独</font>](./leetcode/36.md) [](https://leetcode-cn.com/problems/valid-sudoku/)
+## 36. [<font color=yellow>有效的数独</font>](./leetcode/medium/36.md) [](https://leetcode-cn.com/problems/valid-sudoku/)
 ![有效的数独](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png)
 
 ```java
@@ -264,7 +264,7 @@ class Solution {
 }
 ```
 
-## 37. [<font color=red>解数独</font>](./leetcode/37.md) [](https://leetcode-cn.com/problems/sudoku-solver/)
+## 37. [<font color=red>解数独</font>](./leetcode/hard/37.md) [](https://leetcode-cn.com/problems/sudoku-solver/)
 ![解数独](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png)
 
 ```java
@@ -308,7 +308,7 @@ class Solution {
 }
 ```
 
-## 41. [<font color=red>缺失的第一个整数</font>](./leetcode/41.md) [](https://leetcode-cn.com/problems/first-missing-positive/)
+## 41. [<font color=red>缺失的第一个整数</font>](./leetcode/hard/41.md) [](https://leetcode-cn.com/problems/first-missing-positive/)
 ```java
 class Solution {
 	public int firstMissingPositive(int[] nums) {
@@ -327,7 +327,7 @@ class Solution {
 }
 ```
 
-## 42. [<font color=red>接雨水</font>](./leetcode/42.md) [](https://leetcode-cn.com/problems/trapping-rain-water)
+## 42. [<font color=red>接雨水</font>](./leetcode/hard/42.md) [](https://leetcode-cn.com/problems/trapping-rain-water)
 ![接雨水](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png)
 
 ```java
@@ -356,7 +356,7 @@ class Solution {
 
 ```
 
-## 48. [<font color=yellow>旋转图像</font>](./leetcode/48.md) [](https://leetcode-cn.com/problems/rotate-image/)
+## 48. [<font color=yellow>旋转图像</font>](./leetcode/medium/48.md) [](https://leetcode-cn.com/problems/rotate-image/)
 ![旋转图像](https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg)
 
 ```java
@@ -379,7 +379,7 @@ class Solution {
 }
 ```
 
-## 51. [<font color=red>N皇后</font>](./leetcode/51.md) [](https://leetcode-cn.com/problems/n-queens)
+## 51. [<font color=red>N皇后</font>](./leetcode/hard/51.md) [](https://leetcode-cn.com/problems/n-queens)
 ![N皇后](https://assets.leetcode.com/uploads/2020/11/13/queens.jpg)
 
 ```java
@@ -433,7 +433,7 @@ class Solution {
 }
 ```
 
-## 52. [<font color=red>N皇后II</font>](./leetcode/52.md) [](https://leetcode-cn.com/problems/n-queens-ii)
+## 52. [<font color=red>N皇后II</font>](./leetcode/hard/52.md) [](https://leetcode-cn.com/problems/n-queens-ii)
 ```java
 class Solution {
 	private HashSet<Integer> rows    = new HashSet<>();
@@ -470,7 +470,7 @@ class Solution {
 }
 ```
 
-## 71. [<font color=yellow>简化路径</font>](./leetcode/71.md) [](https://leetcode-cn.com/problems/simplify-path/)
+## 71. [<font color=yellow>简化路径</font>](./leetcode/medium/71.md) [](https://leetcode-cn.com/problems/simplify-path/)
 ```java
 class Solution {
 	public String simplifyPath(String path) {
@@ -501,7 +501,7 @@ class Solution {
 }
 ```
 
-## 79. [<font color=yellow>单词搜索</font>](./leetcode/79.md) [](https://leetcode-cn.com/problems/word-search)
+## 79. [<font color=yellow>单词搜索</font>](./leetcode/medium/79.md) [](https://leetcode-cn.com/problems/word-search)
 ![单词搜索](https://assets.leetcode.com/uploads/2020/11/04/word2.jpg)
 
 ```java
@@ -541,7 +541,7 @@ class Solution {
 
 ```
 
-## 150. [<font color=yellow>逆波兰表达式求值</font>](./leetcode/150.md) [](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation)
+## 150. [<font color=yellow>逆波兰表达式求值</font>](./leetcode/medium/150.md) [](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation)
 ```java
 class Solution {
 	public int evalRPN(String[] tokens) {
@@ -568,7 +568,7 @@ class Solution {
 }
 ```
 
-## 169. [<font color=green>多数元素</font>](./leetcode/169.md) [](https://leetcode-cn.com/problems/majority-element/)
+## 169. [<font color=green>多数元素</font>](./leetcode/easy//169.md) [](https://leetcode-cn.com/problems/majority-element/)
 ```java
 class Solution {
 	public int majorityElement(int[] nums) {
@@ -602,7 +602,7 @@ class Solution {
 }
 ```
 
-## 212. [<font color=red>单词搜索II</font>](./leetcode/212.md) [](https://leetcode-cn.com/problems/word-search-ii)
+## 212. [<font color=red>单词搜索II</font>](./leetcode/hard/212.md) [](https://leetcode-cn.com/problems/word-search-ii)
 ![单词搜索](https://assets.leetcode.com/uploads/2020/11/07/search1.jpg)
 
 ```java
@@ -660,7 +660,7 @@ class Solution {
 }
 ```
 
-## 223. [<font color=yellow>矩形面积</font>](./leetcode/223.md) [](https://leetcode-cn.com/problems/rectangle-area/)
+## 223. [<font color=yellow>矩形面积</font>](./leetcode/medium/223.md) [](https://leetcode-cn.com/problems/rectangle-area/)
 ![矩形面积](https://assets.leetcode.com/uploads/2021/05/08/rectangle-plane.png)
 
 ```java
@@ -673,7 +673,7 @@ class Solution {
 }
 ```
 
-## 224. [<font color=red>基本计算器</font>](./leetcode/224.md) [](https://leetcode-cn.com/problems/basic-calculator/)
+## 224. [<font color=red>基本计算器</font>](./leetcode/hard/224.md) [](https://leetcode-cn.com/problems/basic-calculator/)
 ```java
 class Solution {
     private LinkedList<String> nums = new LinkedList<>();
@@ -760,7 +760,7 @@ class Solution {
 }
 ```
 
-## 233. [<font color=red>数字1的个数</font>](./leetcode/233.md) [](https://leetcode-cn.com/problems/number-of-digit-one)
+## 233. [<font color=red>数字1的个数</font>](./leetcode/hard/233.md) [](https://leetcode-cn.com/problems/number-of-digit-one)
 ```java
 class Solution {
 	public int countDigitOne(int n) {
@@ -779,7 +779,7 @@ class Solution {
 }
 ```
 
-## 239. [<font color=red>滑动窗口最大值</font>](./leetcode/239.md) [](https://leetcode-cn.com/problems/sliding-window-maximum/)
+## 239. [<font color=red>滑动窗口最大值</font>](./leetcode/hard/239.md) [](https://leetcode-cn.com/problems/sliding-window-maximum/)
 ```java
 class Solution {
 	public int[] maxSlidingWindow(int[] nums, int k) {
@@ -814,7 +814,7 @@ class Solution {
 
 ```
 
-## 289. [<font color=yellow>生命游戏</font>](./leetcode/289.md) [](https://leetcode-cn.com/problems/game-of-life)
+## 289. [<font color=yellow>生命游戏</font>](./leetcode/medium/289.md) [](https://leetcode-cn.com/problems/game-of-life)
 ```java
 class Solution {
 	public void gameOfLife(int[][] board) {
@@ -855,7 +855,7 @@ class Solution {
 }
 ```
 
-## 315. [<font color=red>计算右侧小于当前元素的个数</font>](./leetcode/315.md) [](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self)
+## 315. [<font color=red>计算右侧小于当前元素的个数</font>](./leetcode/hard/315.md) [](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self)
 ```java
 class Solution {
 	private int[] num;
@@ -897,7 +897,7 @@ class Solution {
 }
 ```
 
-## 443. [<font color=yellow>压缩字符串</font>](./leetcode/443.md) [](https://leetcode-cn.com/problems/string-compression)
+## 443. [<font color=yellow>压缩字符串</font>](./leetcode/medium/443.md) [](https://leetcode-cn.com/problems/string-compression)
 ```java
 class Solution {
 	public int compress(char[] chars) {
@@ -926,7 +926,7 @@ class Solution {
 }
 ```
 
-## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](./leetcode/503.md) [](https://leetcode-cn.com/problems/next-greater-element-ii/)
+## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](./leetcode/medium/503.md) [](https://leetcode-cn.com/problems/next-greater-element-ii/)
 ```java
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
@@ -944,7 +944,7 @@ class Solution {
 }
 ```
 
-## 509. [<font color=green>斐波那契数</font>](./leetcode/509.md) [](https://leetcode-cn.com/problems/fibonacci-number/)
+## 509. [<font color=green>斐波那契数</font>](./leetcode/easy/509.md) [](https://leetcode-cn.com/problems/fibonacci-number/)
 ```java
 class Solution {
 	public int fib(int N) {
@@ -965,7 +965,7 @@ class Solution {
 }
 ```
 
-## 529. [<font color=yellow>扫雷游戏</font>](./leetcode/529.md) [](https://leetcode-cn.com/problems/minesweeper)
+## 529. [<font color=yellow>扫雷游戏</font>](./leetcode/medium/529.md) [](https://leetcode-cn.com/problems/minesweeper)
 ![扫雷游戏](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_1.png)
 
 ```java
@@ -1017,7 +1017,7 @@ class Solution {
 }
 ```
 
-## 814. [<font color=yellow>二叉树剪枝</font>](./leetcode/814.md) [](https://leetcode-cn.com/problems/binary-tree-pruning/)
+## 814. [<font color=yellow>二叉树剪枝</font>](./leetcode/medium/814.md) [](https://leetcode-cn.com/problems/binary-tree-pruning/)
 ```java
 class Solution {
 	public TreeNode pruneTree(TreeNode root) {
@@ -1040,7 +1040,7 @@ class Solution {
 }
 ```
 
-## 1091. [<font color=yellow>二进制矩阵中的最短路径</font>](./leetcode/1091.md) [](https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/)
+## 1091. [<font color=yellow>二进制矩阵中的最短路径</font>](./leetcode/medium/1091.md) [](https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/)
 ```java
 class Solution {
 	public int[][] map;
@@ -1083,7 +1083,7 @@ class Solution {
 }
 ```
 
-## 1138. [<font color=yellow>字母版上的路径</font>](./leetcode/1138.md) [](https://leetcode-cn.com/problems/alphabet-board-path/)
+## 1138. [<font color=yellow>字母版上的路径</font>](./leetcode/medium/1138.md) [](https://leetcode-cn.com/problems/alphabet-board-path/)
 ![字母板上的路径](https://assets.leetcode.com/uploads/2019/07/28/azboard.png)
 
 ```java
