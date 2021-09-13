@@ -51,6 +51,7 @@
 ```shell
 	bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topTest --from-beginning
 ```
+
 ## 特性：
 - 消息持久化
 - 高吞吐

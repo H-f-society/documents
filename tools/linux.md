@@ -15,8 +15,11 @@
 
 ### 基本操作
 ```shell
-# 关闭防火墙
+# 临时关闭防火墙
 systemctl stop firewalld.service
+
+# 永久关闭防火墙
+systemctl disable firewalld.service
 
 # 网卡配置路径
 /etc/sysconfig/network-scripts	
