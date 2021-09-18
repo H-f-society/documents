@@ -308,7 +308,7 @@ class Solution {
 }
 ```
 
-## 41. [<font color=red>缺失的第一个整数</font>](./leetcode/hard/41.md) [](https://leetcode-cn.com/problems/first-missing-positive/)
+## 41. [<font color=red>缺失的第一个正数</font>](./leetcode/hard/41.md) [](https://leetcode-cn.com/problems/first-missing-positive/)
 ```java
 class Solution {
 	public int firstMissingPositive(int[] nums) {
