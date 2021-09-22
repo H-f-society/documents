@@ -926,7 +926,7 @@ class Solution {
 }
 ```
 
-## 503. [<font color=yellow>下一个更大的元素Ⅱ</font>](./leetcode/medium/503.md) [](https://leetcode-cn.com/problems/next-greater-element-ii/)
+## 503. [<font color=yellow>下一个更大元素Ⅱ</font>](./leetcode/medium/503.md) [](https://leetcode-cn.com/problems/next-greater-element-ii/)
 ```java
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
@@ -1083,7 +1083,7 @@ class Solution {
 }
 ```
 
-## 1138. [<font color=yellow>字母版上的路径</font>](./leetcode/medium/1138.md) [](https://leetcode-cn.com/problems/alphabet-board-path/)
+## 1138. [<font color=yellow>字母板上的路径</font>](./leetcode/medium/1138.md) [](https://leetcode-cn.com/problems/alphabet-board-path/)
 ![字母板上的路径](https://assets.leetcode.com/uploads/2019/07/28/azboard.png)
 
 ```java
