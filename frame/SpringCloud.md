@@ -1,5 +1,5 @@
 # [Home](../README.md)
-## [Spring Cloud](https://spring.io/projects/spring-cloud) / [中文文档](https://www.springcloud.cc/)
+## [Spring Cloud](https://spring.io/projects/spring-cloud) / [中文文档](https://www.springcloud.cc/) / [实操案例](https://github.com/H-f-society/spring-cloud)
 
 ### eureka
 ![eureka](../images/eureka1.jpg)
@@ -31,6 +31,9 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8081/eureka/
 ### rabbit
 ### zuul
 ### hystrix
+> 当Hystrix Command请求后端服务失败数量超过一定比例(默认50%), 断路器会切换到开路状态(Open). 这时所有请求会直接失败而不会发送到后端服务. 断路器保持在开路状态一段时间后(默认5秒), 自动切换到半开路状态(HALF-OPEN). 这时会判断下一次请求的返回情况, 如果请求成功, 断路器切回闭路状态(CLOSED), 否则重新切换到开路状态(OPEN). 
+> Hystrix的断路器就像我们家庭电路中的保险丝, 一旦后端服务不可用, 断路器会直接切断请求链, 避免发送大量无效请求影响系统吞吐量, 并且断路器有自我检测并恢复的能力.
+
 ### hystrix dashboard
 ### turbine
 ### sleuth
