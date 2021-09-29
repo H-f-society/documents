@@ -13,6 +13,8 @@
 	- 服务消费方
 	- 从Eureka获取注册服务列表, 从而能够消费
 
+- 配置
+
 ```
 # 是否将自己注册到Eureka Server, 默认为true
 eureka.client.register-with-eureka=false
@@ -27,6 +29,7 @@ eureka.client.fetch-registry=false
 # 默认是http://localhost:8761/eureka ；多个地址可使用","分隔
 eureka.client.serviceUrl.defaultZone=http://localhost:8081/eureka/
 ```
+- 启动类
 
 ```java
 @SpringBootApplication
@@ -41,7 +44,120 @@ public class EurekaServerNode1Application {
 ```
 ### 服务提供、调用
 #### producer
+- 依赖
+
+```xml
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-eureka</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
+```
+- 配置
+
+```
+spring.application.name=spring-cloud-producer
+server.port=9000
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
+```
+- 启动类
+
+```java
+@SpringBootApplication
+// 启动服务注册与发现
+@EnableDiscoveryClient
+public class ServerProducerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ServerProducerApplication.class, args);
+	}
+
+}
+```
+- controller
+
+```java
+@Controller
+public class TestController {
+
+	@RequestMapping("/hello")
+	@ResponseBody
+	public String index(@RequestParam String name) {
+		return "hello " + name + ", this is first message";
+	}
+}
+```
 #### consumer
+- 依赖
+
+```xml
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-eureka</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
+```
+- 配置
+
+```
+spring.application.name=spring-cloud-consumer
+server.port=9001
+eureka.client.serviceUrl.defaultZone=http://localhost:8080/eureka
+```
+- 启动类
+
+```java
+@SpringBootApplication
+// 启动服务注册与发现
+@EnableDiscoveryClient
+// 启用feign进行远程调用
+@EnableFeignClients
+public class ServerConsumerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ServerConsumerApplication.class, args);
+	}
+
+}
+```
+- controller
+
+```java
+@Controller
+public class TestController {
+
+	@Autowired
+	private TestRemote testRemote;
+
+	@RequestMapping("/hello/{name}")
+	@ResponseBody
+	public String index(@PathVariable("name") String name) {
+		return testRemote.hello(name);
+	}
+}
+```
+- feign调用实现
+
+```java
+@FeignClient(name = "spring-cloud-producer")
+public interface TestRemote {
+
+	@RequestMapping(value = "/hello")
+	public String hello(@RequestParam(value = "name") String name);
+}
+```
 ### 熔断器 Hystrix
 ![hystrix](../images/hystrix.jpg)
 
@@ -59,29 +175,34 @@ public class EurekaServerNode1Application {
 	> &emsp;&emsp;如果是对性能有严格要求而且确信调用服务的客户端代码不会出问题的话, 可以使用hystrix的信号模式(Semaphores)来隔离资源. 
 
 #### feign
+- 配置
+
 ```
 spring.application.name=spring-cloud-consumer-hystrix-fallback
 server.port=9001
 feign.hystrix.enabled=true
 eureka.client.serviceUrl.defaultZone=http://localhost:8080/eureka
 ```
+- 创建回调类
+
 ```java
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+@Component
+public class TestRemoteHystrix implements TestRemote {
 
-@SpringBootApplication
-// 启动服务注册与发现
-@EnableDiscoveryClient
-// 启用feign进行远程调用
-@EnableFeignClients
-public class HystrixFallbackApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(HystrixFallbackApplication.class, args);
+	@Override
+	public String hello(@RequestParam(value = "name") String name) {
+		return "hello " + name + ", this message send failed";
 	}
+}
+```
+- 添加fallback属性
 
+```java
+@FeignClient(name = "spring-cloud-producer", fallback = TestRemoteHystrix.class)
+public interface TestRemote {
+
+	@RequestMapping(value = "/hello")
+	public String hello(@RequestParam(value = "name") String name);
 }
 ```
 
