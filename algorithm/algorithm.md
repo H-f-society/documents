@@ -662,17 +662,29 @@ public static void RadixSort() {
 ![归并排序](../images/mergesort.gif)
 
 ```java
-import java.util.*;
+import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort<T extends Comparable<T>> {
+
 	public static void main(String[] args) {
-		int[] nums   = {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
-		int[] result = new int[nums.length];
+		Integer[] nums   = new Integer[] {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
+		Integer[] result = new Integer[nums.length];
 
-		merge(nums, result, 0, nums.length - 1);
-		printArr(result);
+		MergeSort<Integer> mergeSort = new MergeSort<>();
+		mergeSort.merge(nums, result, 0, nums.length - 1);
+		System.out.println(Arrays.toString(result));
+
+
+		String[] strs = new String[] {"Java", "Python", "JavaScript", "C++", "PHP", "C"};
+		String[] strRes = new String[strs.length];
+
+		MergeSort<String> strSort = new MergeSort<>();
+		strSort.merge(strs, strRes, 0, strs.length - 1);
+		System.out.println(Arrays.toString(strRes));
+
 	}
-	public static void merge(int[] nums, int[] result, int start, int end) {
+
+	public void merge(T[] nums, T[] result, int start, int end) {
 		if (start >= end) return;
 
 		int mid = ((end - start) / 2) + start;
@@ -681,19 +693,18 @@ public class MergeSort {
 		merge(nums, result, start1, end1);
 		merge(nums, result, start2, end2);
 		int i = start;
-		while (start1 <= end1 && start2 <= end2)
-			result[i++] = nums[start1] < nums[start2] ? nums[start1++] : nums[start2++];
-		while (start1 <= end1)
+		while (start1 <= end1 && start2 <= end2) {
+			result[i++] = nums[start1].compareTo(nums[start2]) < 0 ? nums[start1++] : nums[start2++];
+		}
+		while (start1 <= end1) {
 			result[i++] = nums[start1++];
-		while (start2 <= end2)
+		}
+		while (start2 <= end2) {
 			result[i++] = nums[start2++];
-		for (i = start; i <= end; i++)
+		}
+		for (i = start; i <= end; i++) {
 			nums[i] = result[i];
-	}
-	public static void printArr(int[] nums) {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < nums.length; i++) list.add(nums[i]);
-		System.out.println(list);
+		}
 	}
 }
 ```
@@ -701,67 +712,64 @@ public class MergeSort {
 ![快速排序](../images/quicksort.gif)
 
 ```java
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
-public class QuickSort {
+public class QuickSort<T extends Comparable<T>> {
 
 	public static void main(String[] args) {
-		int[] nums = {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
+		Integer[] nums = new Integer[] {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
+		String[]  strs = new String[] {"Java", "Python", "JavaScript", "C++", "PHP", "C"};
 
-		sort(nums, 0, nums.length - 1);
+		QuickSort<Integer> numSort = new QuickSort<>();
+		numSort.sort(nums, 0, nums.length - 1);
 
-		printArr(nums);
+		QuickSort<String> strSort  = new QuickSort<>();
+		strSort.sort(strs, 0, strs.length - 1);
+
+		System.out.println(Arrays.toString(nums));
+		System.out.println(Arrays.toString(strs));
 	}
-	public static void sort(int[] nums, int left, int right) {
-		if (nums == null || nums.length == 0) {
+	public void sort(T[] arr, int left, int right) {
+		if (arr == null || arr.length == 0) {
 			return;
 		}
 		if (left > right) {
 			return;
 		}
 		// 取中间值pivot
-		int pivot = nums[left + (right - left) / 2];
+		T pivot = arr[left + (right - left) / 2];
 		int i = left;
 		int j = right;
 		while (i <= j) {
 			// 找到左边大于pivot的值
-			while (nums[i] < pivot) {
+			while (pivot.compareTo(arr[i]) > 0) {
 				i++;
 			}
 			// 找到右边小于pivot的值
-			while (nums[j] > pivot) {
+			while (pivot.compareTo(arr[j]) < 0) {
 				j--;
 			}
 			//把左右两边找到的值交换
 			if (i <= j) {
-				swap(nums, i, j);
+				swap(arr, i, j);
 				i++;
 				j--;
 			}
 		}
 		// 对左边子数组做排序处理
 		if (j > left) {
-			sort(nums, left, j);
+			sort(arr, left, j);
 		}
 		// 对右边子数组做排序处理
 		if (i < right) {
-			sort(nums, i, right);
+			sort(arr, i, right);
 		}
 
 	}
-	public static void swap(int[] nums, int i, int j) {
-		int tmp = nums[i];
-		nums[i] = nums[j];
-		nums[j] = tmp;
-	}
-
-	public static void printArr(int[] nums) {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < nums.length; i++) {
-			list.add(nums[i]);
-		}
-		System.out.println(list);
+	public void swap(T[] arr, int i, int j) {
+		T temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	}
 }
 ```

@@ -1,17 +1,26 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort<T extends Comparable<T>> {
 
 	public static void main(String[] args) {
-		int[] nums   = {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
-		int[] result = new int[nums.length];
+		Integer[] nums   = new Integer[] {5, 8, 3, 9, 1, 7, 0, 2, 4, 6};
+		Integer[] result = new Integer[nums.length];
 
-		merge(nums, result, 0, nums.length - 1);
-		printArr(result);
+		MergeSort<Integer> mergeSort = new MergeSort<>();
+		mergeSort.merge(nums, result, 0, nums.length - 1);
+		System.out.println(Arrays.toString(result));
+
+
+		String[] strs = new String[] {"Java", "Python", "JavaScript", "C++", "PHP", "C"};
+		String[] strRes = new String[strs.length];
+
+		MergeSort<String> strSort = new MergeSort<>();
+		strSort.merge(strs, strRes, 0, strs.length - 1);
+		System.out.println(Arrays.toString(strRes));
+
 	}
 
-	public static void merge(int[] nums, int[] result, int start, int end) {
+	public void merge(T[] nums, T[] result, int start, int end) {
 		if (start >= end) return;
 
 		int mid = ((end - start) / 2) + start;
@@ -21,7 +30,7 @@ public class MergeSort {
 		merge(nums, result, start2, end2);
 		int i = start;
 		while (start1 <= end1 && start2 <= end2) {
-			result[i++] = nums[start1] < nums[start2] ? nums[start1++] : nums[start2++];
+			result[i++] = nums[start1].compareTo(nums[start2]) < 0 ? nums[start1++] : nums[start2++];
 		}
 		while (start1 <= end1) {
 			result[i++] = nums[start1++];
@@ -32,13 +41,5 @@ public class MergeSort {
 		for (i = start; i <= end; i++) {
 			nums[i] = result[i];
 		}
-	}
-
-	public static void printArr(int[] nums) {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < nums.length; i++) {
-			list.add(nums[i]);
-		}
-		System.out.println(list);
 	}
 }
