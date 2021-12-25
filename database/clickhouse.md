@@ -145,4 +145,8 @@ rand() 生产随机数
 toString() 转字符串
 toInt8(), toInt16(), toInt32(), toInt64() 转整数
 substring() 字符串截取
+
+groupArray() 分组转数组, 行转列
+arrayEnumerateDense() 计算排名
+Array join 拆分groupArray(), 列转行
 ```
