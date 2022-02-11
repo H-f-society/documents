@@ -26,6 +26,9 @@ systemctl disable firewalld.service
 
 # 重启网卡
 systemctl restart network
+
+# 删除文件并排除指定文件
+find * | grep -v '\(1.txt\|2.txt\)' | xargs rm
 ```
 ### openssl
 > 加密
