@@ -617,13 +617,14 @@ public class Heap {
 ```java
 public class SleepSort {
     public static void main(String[] args) {
+
         int[] nums = new int[]{2, 1, 5, 4, 6, 3, 9, 7, 8};
-        for (int i = 0; i < nums.length; i++) {
-            int index = i;
+
+        for (int num : nums) {
             new Thread(() -> {
                 try {
-                    Thread.sleep(nums[index] * 10);
-                    System.out.print(nums[index] + ", ");
+                    Thread.sleep(num * 10);
+                    System.out.print(num + ", ");
                 } catch (InterruptedException ignored) {}
             }).start();
         }
