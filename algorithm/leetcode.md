@@ -22,6 +22,7 @@
 - [ [814] 二叉树剪枝 ](./leetcode/medium/814.md)
 - [ [1091] 二进制矩阵中的最短路径 ](./leetcode/medium/1091.md)
 - [ [1138] 字母板上的路径 ](./leetcode/medium/1138.md)
+- [ [2100] 适合打劫银行的日子 ](./leetcode/medium/2100.md)
 
 ## hard
 - [ [4] 寻找两个正序数组的中位数 ](./leetcode/hard/4.md)
