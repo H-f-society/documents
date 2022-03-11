@@ -2,7 +2,7 @@
 * @Author: root
 * @Date:   2022-03-11 16:27:35
 * @Last Modified by:   root
-* @Last Modified time: 2022-03-11 16:41:34
+* @Last Modified time: 2022-03-11 16:46:01
 */
 
 public class SleepSort {
@@ -13,7 +13,7 @@ public class SleepSort {
             new Thread() {
                 public void run() {
                     try {
-                        sleep(nums[index]);
+                        sleep(nums[index] * 10);
                         System.out.print(nums[index] + ", ");
                     } catch (InterruptedException e) {
                     }

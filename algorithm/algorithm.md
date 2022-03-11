@@ -623,7 +623,7 @@ public class SleepSort {
             new Thread() {
                 public void run() {
                     try {
-                        sleep(nums[index]);
+                        sleep(nums[index] * 10);
                         System.out.print(nums[index] + ", ");
                     } catch (InterruptedException e) {
                     }
