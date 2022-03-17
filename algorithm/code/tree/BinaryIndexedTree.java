@@ -2,20 +2,17 @@
 * @Author: root
 * @Date:   2022-03-17 08:40:52
 * @Last Modified by:   root
-* @Last Modified time: 2022-03-17 09:38:17
+* @Last Modified time: 2022-03-17 09:49:47
 * 
 * 
 *     树状数组 /  二叉索引数
 *---------------------------------------
-*
 *                          36
 *            10
 *      3            11
 *   1     3     5       7
 * --------------------------------------
 */
-
-import java.util.Arrays;
 
 public class BinaryIndexedTree {
 
@@ -50,6 +47,10 @@ public class BinaryIndexedTree {
         }
     }
 
+    /**
+     * 对某个节点追加值，并向上更新其父节点的值
+     * 时间复杂度: O(logn)
+     */
     public void addVal(int[] nums, int index, int val) {
         if (index >= nums.length) {
             return;
@@ -74,6 +75,10 @@ public class BinaryIndexedTree {
         return result;
     }
 
+    /**
+     * 给定某区间下标，计算该区间内的和
+     * 时间复杂度: O(logn)
+     */
     public int ask(int[] nums, int beginIndex, int endIndex) {
         return ask(nums, endIndex) - ask(nums, beginIndex - 1);
     }
@@ -92,5 +97,4 @@ public class BinaryIndexedTree {
         }
         System.out.println();
     }
-
 }
