@@ -157,7 +157,7 @@ public class BinarySearchTree {
 public class BinaryIndexedTree {
 
     private static int[] nums = {1, 2, 3, 4, 5, 6, 7, 8};
-    private static int[] bitTree = new int[nums.length + 1];
+    private static int[] bitTree = new int[nums.length];
 
     public static void main(String[] args) {
         BinaryIndexedTree bit = new BinaryIndexedTree();
@@ -185,9 +185,7 @@ public class BinaryIndexedTree {
      * 父节点值 = 父节点+ 所有子节点
      */
     public void createBitTree(int[] nums) {
-        for (int i=0; i< nums.length; i++) {
-            bitTree[i] = nums[i];
-        }
+        bitTree = nums.clone();
         for (int i=0; i<nums.length - 1; i++) {
             int tmp = i + lowBit(i + 1);
             if (tmp < bitTree.length) {
