@@ -23,78 +23,86 @@
 public class BinaryIndexedTree {
 
     private static int[] nums = {1, 2, 3, 4, 5, 6, 7, 8};
+    private static int[] bitTree = new int[nums.length + 1];
 
     public static void main(String[] args) {
         BinaryIndexedTree bit = new BinaryIndexedTree();
 
-        bit.createBIT(nums);
+        bit.createBitTree(nums);
 
-        System.out.println(bit.ask(nums, 5));
-        System.out.println(bit.ask(nums, 3, 6));
+        bit.print(bitTree);
 
-        bit.print(nums);
+        bit.updateNodeVal(4, 6);
+        bit.updateNodeVal(0, 2);
+        bit.updateNodeVal(0, 9);
+        System.out.println(bit.sumRange(4, 4));
+        bit.updateNodeVal(3, 8);
+        System.out.println(bit.sumRange(0, 4));
+        bit.updateNodeVal(4, 1);
+        System.out.println(bit.sumRange(0, 3));
+        System.out.println(bit.sumRange(0, 4));
 
-        bit.addVal(nums, 2, 7);
-
-        System.out.println(bit.ask(nums, 5));
-        System.out.println(bit.ask(nums, 3, 6));
-
-        bit.print(nums);
+        bit.print(bitTree);
     }
 
     /**
      * 构建树状数组
-     * Tree[x] 的父节点为 Tree[x + lowbit(i)]
+     * Tree[x] 的父节点为 Tree[x + lowBit(i)]
      * 父节点值 = 父节点+ 所有子节点
      */
-    public void createBIT(int[] nums) {
+    public void createBitTree(int[] nums) {
+        for (int i=0; i< nums.length; i++) {
+            bitTree[i] = nums[i];
+        }
         for (int i=0; i<nums.length - 1; i++) {
-            nums[i + lowbit(i + 1)] += nums[i];
+            int tmp = i + lowBit(i + 1);
+            if (tmp < bitTree.length) {
+                bitTree[tmp] += bitTree[i];
+            }
         }
     }
 
     /**
-     * 对某个节点追加值，并向上更新其父节点的值
+     * 修改某个节点的值，并向上更新其父节点的值
      * 时间复杂度: O(logn)
      */
-    public void addVal(int[] nums, int index, int val) {
-        if (index >= nums.length) {
-            return;
+    public void updateNodeVal(int index, int val) {
+        int tmpVal = nums[index] - val;
+        nums[index] = val;
+        while (index < bitTree.length) {
+            bitTree[index] -= tmpVal;
+            index = index + lowBit(index + 1);
         }
-        nums[index] += val;
-        int pNodeIndex = index + lowbit(index + 1);
-        addVal(nums, pNodeIndex, val);
     }
 
     /**
      * 下标 0 ~ index 的和
      * 时间复杂度: O(logn)
      */
-    public int ask(int[] nums, int index) {
-        int result = 0;
-        index += 1;
-        while(index > 0) {
-            result += nums[index - 1];
-            int temp = lowbit(index);
-            index -= temp;
+    public int sumRange(int right) {
+        int sum = 0;
+        right++;
+        while (right > 0) {
+            sum += bitTree[right - 1];
+            right -= lowBit(right);
         }
-        return result;
+        return sum;
     }
 
     /**
      * 给定某区间下标，计算该区间内的和
      * 时间复杂度: O(logn)
      */
-    public int ask(int[] nums, int beginIndex, int endIndex) {
-        return ask(nums, endIndex) - ask(nums, beginIndex - 1);
+    public int sumRange(int left, int right) {
+        return sumRange(right) - sumRange(left - 1);
     }
 
     /**
-     * lowbit(x)是x的二进制表达式中最低位的1所对应的值
+     * lowBit(x)是x的二进制表达式中最低位的1所对应的值
      * -x = x取反 + 1
      */
-    public int lowbit(int num) {
-        return num & -num;
+    public int lowBit(int n) {
+        return n & -n;
     }
 
     public void print(int[] nums) {

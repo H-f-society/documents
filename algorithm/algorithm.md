@@ -132,13 +132,26 @@ public class BinarySearchTree {
 ```
 #### Binary Indexed Tree
 ```java
-/*     树状数组 /  二叉索引数
-*---------------------------------------
-*                          36
-*            10
-*      3            11
-*   1     3     5       7
-* --------------------------------------
+/*  
+*     树状数组 / 二叉索引数 / binary indexed tree
+*---------------------------------------------------------
+* 将 [1, 2, 3, 4, 5, 6, 7, 8] 维护成下图所示的树形结构数组
+* --------------------------------------------------------
+*    len = 8 |                          36                                              
+*    len = 4 |             10              
+*    len = 2 |      3            11        
+*    len = 1 |   1     3     5       7       
+* --------------------------------------------------------
+*  下标          0  1  2  3  4   5   6   7
+* --------------------------------------------------------
+*/
+/*
+       ---------36   
+   ----10   |    |
+   3   |    11   |
+   |   |    |    |
+   1   3    5    7
+
 */
 
 public class BinaryIndexedTree {
@@ -164,7 +177,7 @@ public class BinaryIndexedTree {
     }
 
     /**
-     * 创建树状数组
+     * 构建树状数组
      * Tree[x] 的父节点为 Tree[x + lowbit(i)]
      * 父节点值 = 父节点+ 所有子节点
      */
@@ -206,8 +219,8 @@ public class BinaryIndexedTree {
      * 给定某区间下标，计算该区间内的和
      * 时间复杂度: O(logn)
      */
-    public int ask(int[] nums, int beginIndex, int endIndex) {
-        return ask(nums, endIndex) - ask(nums, beginIndex - 1);
+    public int ask(int[] nums, int from, int to) {
+        return ask(nums, to) - ask(nums, from - 1);
     }
 
     /**
