@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BubbleSort {
 
@@ -14,14 +13,6 @@ public class BubbleSort {
 				}
 			}
 		}
-		printArr(nums);
-	}
-
-	public static void printArr(int[] nums) {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < nums.length; i++) {
-			list.add(nums[i]);
-		}
-		System.out.println(list);
+		System.out.println(Arrays.toString(nums));
 	}
 }

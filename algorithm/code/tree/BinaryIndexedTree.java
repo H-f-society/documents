@@ -19,6 +19,7 @@
    1   3    5    7
 
 */
+import java.util.Arrays;
 
 public class BinaryIndexedTree {
 
@@ -30,7 +31,7 @@ public class BinaryIndexedTree {
 
         bit.createBitTree(nums);
 
-        bit.print(bitTree);
+        System.out.println(Arrays.toString(nums));
 
         bit.updateNodeVal(4, 6);
         bit.updateNodeVal(0, 2);
@@ -42,7 +43,7 @@ public class BinaryIndexedTree {
         System.out.println(bit.sumRange(0, 3));
         System.out.println(bit.sumRange(0, 4));
 
-        bit.print(bitTree);
+        System.out.println(Arrays.toString(nums));
     }
 
     /**
@@ -52,7 +53,7 @@ public class BinaryIndexedTree {
      */
     public void createBitTree(int[] nums) {
         bitTree = nums.clone();
-        for (int i=0; i<nums.length - 1; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             int tmp = i + lowBit(i + 1);
             if (tmp < bitTree.length) {
                 bitTree[tmp] += bitTree[i];
@@ -101,12 +102,5 @@ public class BinaryIndexedTree {
      */
     public int lowBit(int n) {
         return n & -n;
-    }
-
-    public void print(int[] nums) {
-        for (int i=0; i<nums.length; i++) {
-            System.out.print( i == 0 ? "[ " +nums[i] : ", " + nums[i] + (i == nums.length - 1 ? " ]" : "") );
-        }
-        System.out.println();
     }
 }
