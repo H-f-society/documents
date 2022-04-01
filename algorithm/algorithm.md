@@ -286,7 +286,7 @@ public class HuffmanTree {
             map.put(ch, map.containsKey(ch) ? map.get(ch) + 1 : 1);
         }
 
-        // 优先队列 - 大顶堆
+        // 优先队列 - 小顶堆
         PriorityQueue<TreeNode<Character>> priorityQueue = new PriorityQueue<>(
                 Comparator.comparingInt(o -> o.count)
         );
