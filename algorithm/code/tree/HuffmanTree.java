@@ -76,10 +76,10 @@ public class HuffmanTree {
      * @param map  huffman编码表
      * @param path huffman叶子节点全路径
      */
-    public static void huffmanCode(TreeNode<Character> root, Map<String, Character> map, String path) {
+    public static void huffmanCode(TreeNode<Character> root, Map<Character, String> map, String path) {
         if (root == null) return;
         if (root.left == null && root.right == null) {
-            map.put(path, root.value);
+            map.put(root.value, path);
         } else {
             huffmanCode(root.left, map, path + "0");
             huffmanCode(root.right, map, path + "1");
@@ -92,11 +92,15 @@ public class HuffmanTree {
 
         TreeNode<Character> huffmanTree = createHuffmanTree(content);
 
-        Map<String, Character> huffmanCodeMap = new HashMap<>();
+        Map<Character, String> huffmanCodeMap = new HashMap<>();
         huffmanCode(huffmanTree, huffmanCodeMap, "");
 
-        for (String code : huffmanCodeMap.keySet()) {
-            System.out.println(code + ":" + huffmanCodeMap.get(code));
+        for (Character code : huffmanCodeMap.keySet()) {
+            System.out.print("[" + code + ":" + huffmanCodeMap.get(code) + "], ");
+        }
+        System.out.println();
+        for (int i=0; i<content.length(); i++) {
+            System.out.print(huffmanCodeMap.get(content.charAt(i)));
         }
     }
 }
