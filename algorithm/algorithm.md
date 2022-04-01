@@ -252,6 +252,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+/**
+ * @Author: root
+ * @Date: 2022/4/1 10:07
+ * @Description: 哈夫曼编码 - huffman - tree / code / decode
+ */
 public class HuffmanTree {
 
     static class TreeNode<T extends Comparable<T>> {
@@ -330,6 +335,28 @@ public class HuffmanTree {
         }
     }
 
+    /**
+     * huffman编码解码，还原字符串文本
+     *
+     * @param root huffman树
+     * @param code huffman编码
+     * @param result huffman编码解码后文本
+     */
+    public static void huffmanDecode(TreeNode<Character> tree, TreeNode<Character> root, String code, int index, StringBuilder result) {
+        if (root == null) return;
+        if (root.left == null && root.right == null) {
+            result.append(root.value);
+            huffmanDecode(tree, tree, code, index, result);
+        }
+        if (index >= code.length()) return;
+        if (code.charAt(index) == '0') {
+            huffmanDecode(tree, root.left, code, index + 1, result);
+        }
+        if (code.charAt(index) == '1') {
+            huffmanDecode(tree, root.right, code, index + 1, result);
+        }
+    }
+
     public static void main(String[] args) {
 
         String content = "huffmantree";
@@ -343,11 +370,18 @@ public class HuffmanTree {
             System.out.print("[" + code + ":" + huffmanCodeMap.get(code) + "], ");
         }
         System.out.println();
+        StringBuilder hfcode = new StringBuilder();
         for (int i=0; i<content.length(); i++) {
-            System.out.print(huffmanCodeMap.get(content.charAt(i)));
+            hfcode.append(huffmanCodeMap.get(content.charAt(i)));
         }
+        System.out.println(hfcode);
+
+        StringBuilder hfdecode = new StringBuilder();
+        huffmanDecode(huffmanTree, huffmanTree, hfcode.toString(), 0, hfdecode);
+        System.out.println(hfdecode);
     }
 }
+
 ```
 #### Trie Tree
 ```java
