@@ -155,6 +155,31 @@ end;
 
 ### 存储函数
 
+### declare
+```sql
+declare
+    type ArrayList is varray(10) of varchar2(255);
+    v_index number := 0;
+    v_array ArrayList := ArrayList('a', 'b');
+begin
+    for rst in (
+        select a, b, c from db.table
+    ) loop
+        if rst.a = 'A' then
+            insert into ...;
+        elsif rst.b = 'B' then
+            insert into ...;
+        else 
+            insert into ...;
+            for i in 1..v_array.count loop
+                insert into ...;
+            end loop;
+        end if;
+        dbms_output.put_line('hello world');
+    end loop;
+end;
+/
+```
 
 ### 常用函数
 ```sql
