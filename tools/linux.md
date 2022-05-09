@@ -13,6 +13,11 @@
 - [ElementaryOS](https://elementary.io/zh_CN/)
 - [Nitrux](https://nxos.org/)
 
+### 安装微信
+```shell
+wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
+sudo apt install deepin.com.wechat
+```
 ### 基本操作
 ```shell
 # 临时关闭防火墙
@@ -123,4 +128,22 @@ sqlmap -u url?id=1 --columns -T "tb_name" -D "db_name"
 sqlmap -u url?id=1 --dump -C "username, password" -T "tb_name" -D "db_name"
 
 sqlmap -u url?id=1 --is-dbs #判断该注入点是否有管理员权限，true表示管理员
+```
+
+### vim
+```shell
+# nerdtree插件
+?: 快速帮助文档
+o: 打开一个目录或者打开文件，创建的是 buffer，也可以用来打开书签
+go: 打开一个文件，但是光标仍然留在 NERDTree，创建的是 buffer
+t: 打开一个文件，创建的是Tab，对书签同样生效
+T: 打开一个文件，但是光标仍然留在 NERDTree，创建的是 Tab，对书签同样生效
+i: 水平分割创建文件的窗口，创建的是 buffer
+gi: 水平分割创建文件的窗口，但是光标仍然留在 NERDTree
+s: 垂直分割创建文件的窗口，创建的是 buffer
+gs: 和 gi，go 类似
+x: 收起当前打开的目录
+X: 收起所有打开的目录
+e: 以文件管理的方式打开选中的目录
+D: 删除书签
 ```

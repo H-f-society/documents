@@ -90,6 +90,17 @@ drop table tbName;
 truncate table tbName;
 
 create table tbname2 as select * from tbname1;
+
+-- 插入多条数
+-- insert all into并不表示一个表中插入多条记录，而是表示多表插入各一条记录
+-- 而这多表可以是同一个表，就成了单表插入多条记录。根据后面子查询的结果，前面每条into语句执行一次，其中value都是“字面量”
+-- 所以用select 1 from dual返回一条记录即可。
+INSERT ALL 
+INTO my_table(field_1,field_2) VALUES (value_1,value_2) 
+INTO my_table(field_1,field_2) VALUES (value_3,value_4) 
+INTO my_table(field_1,field_2) VALUES (value_5,value_6)
+SELECT 1 FROM DUAL;
+
 ```
 
 ### MERGE INTO
