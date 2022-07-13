@@ -1,11 +1,12 @@
-/* 
-* @Author: root
-* @Date:   2022-03-11 16:27:35
-* @Last Modified by:   root
-* @Last Modified time: 2022-03-29 16:51:12
-*/
+package sort;
 
+/**
+ * @Author: root
+ * @Date: 2022/3/29 16:50
+ * @Description: 睡眠排序（搞笑）
+ */
 public class SleepSort {
+
     public static void main(String[] args) {
 
         int[] nums = {2, 1, 5, 4, 6, 3, 9, 7, 8};

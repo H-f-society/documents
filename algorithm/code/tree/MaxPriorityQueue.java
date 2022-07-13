@@ -1,28 +1,38 @@
+package tree;
+
 import java.util.ArrayList;
 
 /**
- * 优先队列 - 大顶堆 - 堆排序
+ * @Author: root
+ * @Date: 2022/3/29 16:50
+ * @Description: 优先队列 - 大顶堆 - 堆排序
  */
 public class MaxPriorityQueue<T extends Comparable<T>> {
 
-    // 存放堆节点
+    /**
+     * 存放堆节点
+     */
     private final ArrayList<T> queue;
 
     public MaxPriorityQueue() {
         this.queue = new ArrayList<>();
     }
 
-    // 当前堆大小
+    /**
+     * 当前堆大小
+     */
     public int size() {
         return queue.size();
     }
 
+    @Override
     public String toString() {
         return queue.toString();
     }
 
     /**
      * 元素添加到堆中，并调整堆序
+     *
      * @param val 新节点元素
      */
     public void add(T val) {
@@ -47,6 +57,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
 
     /**
      * 移除堆中最值，并调整堆序
+     *
      * @return 堆顶最值
      */
     public T remove() {
@@ -60,24 +71,24 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
         // 堆顶节点向下和子节点比较，决定是否下移保持堆序
         int index = 0;
         while ((index * 2) + 1 < size()) {
-            int first;
+            int top;
             int left = (index * 2) + 1;
             int right = (index * 2) + 2;
 
             if (right < size()) {
                 // 如果存在右子节点，取左、右节点最值，与当前节点比较。
-                first = compareTo(queue.get(left), queue.get(right)) ? left : right;
-                first = compareTo(queue.get(first), queue.get(index)) ? first : index;
+                top = compareTo(queue.get(left), queue.get(right)) ? left : right;
+                top = compareTo(queue.get(top), queue.get(index)) ? top : index;
             } else {
                 // 如果只存在左子节点，与当前节点比较
-                first = compareTo(queue.get(left), queue.get(index)) ? left : index;
+                top = compareTo(queue.get(left), queue.get(index)) ? left : index;
             }
             // 如果最值为当前节点，则结束堆节点下移
-            if (first == index) {
+            if (top == index) {
                 break;
             }
-            swap(index, first);
-            index = first;
+            swap(index, top);
+            index = top;
         }
         return result;
     }
@@ -104,6 +115,9 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
         while (maxPriorityQueue.size() > 0) {
             System.out.print(maxPriorityQueue.remove() + " ");
         }
+
         System.out.println();
+
+
     }
 }

@@ -1,10 +1,10 @@
-/* 
-* @Author: root
-* @Date:   2022-03-20 01:14:12
-* @Last Modified by:   root
-* @Last Modified time: 2022-03-20 02:50:48
-*/
+package tree;
 
+/**
+ * @Author: root
+ * @Date: 2022/3/29 16:48
+ * @Description: 前缀树
+ */
 public class TrieTree {
 
     static class TreeNode {
@@ -27,11 +27,11 @@ public class TrieTree {
         trieTree.insert(root, "helloworld");
 
         System.out.println(
-            trieTree.startsWith(root, "helloj")
-            + "\n" + trieTree.startsWith(root, "hellow")
-            + "\n" + trieTree.startsWith(root, "hellod")
-            + "\n" + trieTree.search(root, "helloworld")
-            + "\n" + trieTree.search(root, "hello")
+                trieTree.startsWith(root, "helloj")
+                + "\n" + trieTree.startsWith(root, "hellow")
+                + "\n" + trieTree.startsWith(root, "hellod")
+                + "\n" + trieTree.search(root, "helloworld")
+                + "\n" + trieTree.search(root, "hello")
         );
 
     }

@@ -1,5 +1,12 @@
+package graph;
+
 import java.util.*;
 
+/**
+ * @Author: root
+ * @Date: 2022/3/29 17:04
+ * @Description: A星最短路径
+ */
 public class AStar {
     static class Pos {
         int[] ps;
@@ -59,6 +66,8 @@ public class AStar {
                     hash.add(x + "," + y);
                 }
             }
+
+            // 以权值的大小来排队列中的节点 [此处que可选用PriorityQueue构建大顶堆，好几年前写的那时还不会(狗头)]
             for (int i = 0; i < que.size(); i++) {
                 if (que.get(i).f < que.get(0).f) {
                     Pos tmp = que.get(i);
