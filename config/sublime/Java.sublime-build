@@ -1,0 +1,16 @@
+{
+    //"shell_cmd": "javac -encoding UTF-8 \"$file\" && java \"$file_base_name\" ",
+	"shell_cmd": "javac -encoding UTF-8 \"$file\"  -Djava.ext.dirs=E:\\downloads\\lib && java  -Djava.ext.dirs=E:\\downloads\\lib \"$file_base_name\" && rm *.class ",
+	//"shell_cmd": "javac -encoding UTF-8 \"$file\" && java  \"$file_base_name\" ",
+    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+	"selector": "source.java",
+    "encoding": "GBK" ,
+}
+/*{
+    "shell_cmd": "runJava.bat \"$file\"",
+    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+    "selector": "source.java",
+    //"encoding": "GBK",
+    "encoding": "UTF-8" ,
+    //"encoding": "GB18030"  
+}*/

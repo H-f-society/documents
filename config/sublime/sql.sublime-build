@@ -1,0 +1,7 @@
+{
+
+"cmd": ["mysql", "-hlocalhost","-uroot","-ptoor", "-e", "source $file", "-tv"],
+
+"selector": "source.sql"
+
+}
